@@ -2,7 +2,7 @@ package aufgabenblatt1;
 
 import java.util.Comparator;
 
-public class Student<Pruefungsleistung> implements Comparable<Student>, Comparator<Student> {
+public class Student<Pruefungsleistung> implements Comparable<Student<Pruefungsleistung>>, Comparator<Student<Pruefungsleistung>> {
 
 	private final String VORNAME;
 	private final String NACHNAHME;
