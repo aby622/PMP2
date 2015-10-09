@@ -1,13 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<!-- ELEMENT root -->
-<!ELEMENT root (
 
-<!-- ELEMENT name -->
-<!ELEMENT name ( #PCDATA ) >,
-
-<!-- ELEMENT ip -->
-<!ELEMENT ip ( #PCDATA ) >,
+<!-- ELEMENT geraet -->
+<!ELEMENT geraet (
 
 <!-- ELEMENT sensoren -->
 <!ELEMENT sensoren (
@@ -20,3 +15,11 @@
 
 <!-- ELEMENT wert -->
 <!ELEMENT wert ( #PCDATA ) > ) > ) >
+<!--
+name: 
+
+ip: 
+-->
+<!ATTLIST geraet
+  name CDATA #IMPLIED
+  ip CDATA #IMPLIED >
