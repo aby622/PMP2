@@ -2,10 +2,10 @@ package aufgabenblatt1;
 
 import java.util.Comparator;
 
-public abstract class Student<Pruefungsleistung> implements Comparable<Pruefungsleistung>, Comparator<Pruefungsleistung> {
+public class Student<Pruefungsleistung> implements Comparable<Pruefungsleistung>, Comparator<Pruefungsleistung> {
 
-	private String VORNAME;
-	private String NACHNAHME;
+	private final String VORNAME;
+	private final String NACHNAHME;
 	private int MATRIKELNUMMER;
 	private Pruefungsleistung NOTE;
 	private Pruefungsleistung MODUL;
@@ -20,7 +20,8 @@ public abstract class Student<Pruefungsleistung> implements Comparable<Pruefungs
 		this.MODUL = modul;
 	}
 
-	public int compareTo(Pruefungsleistung student1, Pruefungsleistung student2) {
+	public int compareTo(Student<String> student1, Student<Pruefungsleistung> student2) {
+		
 		student1 = new Student<String>("Peter", "Lustig", 2230300, "13", "ET");
 		
 	
@@ -30,6 +31,12 @@ public abstract class Student<Pruefungsleistung> implements Comparable<Pruefungs
 	@Override
 	public int compare(Pruefungsleistung student1, Pruefungsleistung student2) {
 
+		return 0;
+	}
+
+	@Override
+	public int compareTo(Pruefungsleistung o) {
+		// TODO Auto-generated method stub
 		return 0;
 	}
 }
