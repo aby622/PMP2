@@ -1,37 +1,56 @@
 package aufgabenblatt1;
 
 import java.util.Comparator;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.stream.Collector;
+import java.util.stream.Collectors;
 
-public class Student<Pruefungsleistung> implements Comparable<Student<Pruefungsleistung>>, Comparator<Student<Pruefungsleistung>> {
+public class Student<Pruefungsleistung>
+		implements Comparable<Student<Pruefungsleistung>>, Comparator<Student<Pruefungsleistung>> {
 
 	private final String VORNAME;
-	private final String NACHNAHME;
+	private final String NACHNAME;
 	private final int MATRIKELNUMMER;
-	private Pruefungsleistung NOTE;
-	private Pruefungsleistung MODUL;
 
-	public Student(String vorname, String nachnahme, int matrikelnummer, Pruefungsleistung note,
-			Pruefungsleistung modul) {
+	private List<Pruefungsleistung> liste1 = new LinkedList<Pruefungsleistung>();
+
+	public void eintragHinzufuegen(Pruefungsleistung pruefungsleistung) {
+		liste1.add(pruefungsleistung);
+	}
+
+	public String toString() {
+		return liste1.stream().map((Pruefungsleistung pruefungsleistung) -> {
+			return pruefungsleistung.toString();
+		}).collect(Collectors.joining(", "));
+	}
+
+	public Student(String vorname, String nachname, int matrikelnummer, List<Pruefungsleistung> liste1) {
 
 		this.VORNAME = vorname;
-		this.NACHNAHME = nachnahme;
+		this.NACHNAME = nachname;
 		this.MATRIKELNUMMER = matrikelnummer;
-		this.NOTE = note;
-		this.MODUL = modul;
+		this.liste1 = liste1;
 	}
 
 	@Override
 	public int compare(Student o1, Student o2) {
-		o1 = new Student<String>("Peter", "Siegfried", 213204, "15", "PMP2");
-		o2 = new Student<String>("Klaus", "Eberhard", 213456, "11", "PMP2");
 		return 0;
 	}
 
 	@Override
-	public int compareTo(Student o) {
-		o =  new Student<String>("Mannfred", "Joseph", 213205, "12", "PMP2");
+	public int compareTo(Student<Pruefungsleistung> o) {
 		return 0;
 	}
 
-	
+	public static void main(String[]args){
+		
+		
+		
+		Student student1 = new Student("Fritz", "Müller", 1234567, liste1.add("PM2", "10"));
+		
+		
+		
+	}
+
 }
