@@ -1,5 +1,9 @@
 package aufgabenblatt1;
 
+/*
+ * 8=============D ~ nur für dich
+ */
+
 public class ArrayListe <T>{
 	
 	private int anzahlElemente;
