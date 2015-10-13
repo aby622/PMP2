@@ -1,8 +1,6 @@
 package aufgabenblatt1;
 
-/*
- * 8=============D ~ nur für dich
- */
+//entfernt
 
 public class ArrayListe <T>{
 	
