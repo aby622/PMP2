@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- ELEMENT root -->
+<!ELEMENT root (
+
+<!-- ELEMENT name -->
+<!ELEMENT name ( #PCDATA ) >,
+
+<!-- ELEMENT ip -->
+<!ELEMENT ip ( #PCDATA ) >,
+
+<!-- ELEMENT sensoren -->
+<!ELEMENT sensoren (
+
+<!-- ELEMENT ort -->
+<!ELEMENT ort ( #PCDATA ) >,
+
+<!-- ELEMENT typ -->
+<!ELEMENT typ ( #PCDATA ) >,
+
+<!-- ELEMENT wert -->
+<!ELEMENT wert ( #PCDATA ) > ) > ) >
