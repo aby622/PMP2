@@ -1,10 +1,8 @@
 package aufgabenblatt1;
 
-import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
 public class Student<Pruefungsleistung>
@@ -17,10 +15,6 @@ public class Student<Pruefungsleistung>
 	private Pruefungsleistung MODUL;
 
 	private List<Pruefungsleistung> liste1 = new LinkedList<Pruefungsleistung>();
-
-	public void eintragHinzufuegen(int note, Pruefungsleistung modul) {
-		liste1.add(note, modul);
-	}
 
 	public String toString() {
 		return liste1.stream().map((Pruefungsleistung pruefungsleistung) -> {
@@ -45,13 +39,43 @@ public class Student<Pruefungsleistung>
 		return 0;
 	}
 
-	public static void main(String[] args) {
 	
-		List<Student> liste1 = new LinkedList<Student>();
-		Student student = new Student("Peter", "Lustig", 123445);
-		student.eintragHinzufuegen(10, "PMP2");
-		System.out.print(liste1);
 
+	public String getVORNAME() {
+		return VORNAME;
 	}
 
+	public String getNACHNAME() {
+		return NACHNAME;
+	}
+
+	public int getMATRIKELNUMMER() {
+		return MATRIKELNUMMER;
+	}
+
+	public Pruefungsleistung getNOTE() {
+		return NOTE;
+	}
+
+	public void setNOTE(Pruefungsleistung nOTE) {
+		NOTE = nOTE;
+	}
+
+	public Pruefungsleistung getMODUL() {
+		return MODUL;
+	}
+
+	public void setMODUL(Pruefungsleistung mODUL) {
+		MODUL = mODUL;
+	}
+	public static void main(String[] args) {
+	
+		
+		Student<String> student = new Student<String>("Peter", "Lustig", 123445);
+		student.setMODUL("ET");
+		student.setNOTE("12");
+		
+		System.out.print(student.getMODUL());
+
+	}
 }
