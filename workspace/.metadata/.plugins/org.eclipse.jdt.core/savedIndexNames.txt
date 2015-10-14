@@ -1,5 +1,5 @@
-<<<<<<< HEAD
 INDEX VERSION 1.127+I:\Users\Jannes\TI Kram\Programme\Git\Git\workspace\.metadata\.plugins\org.eclipse.jdt.core
+1410298062.index
 3133528496.index
 3065916431.index
 4041092966.index
@@ -15,25 +15,3 @@ INDEX VERSION 1.127+I:\Users\Jannes\TI Kram\Programme\Git\Git\workspace\.metadat
 1498219845.index
 3974580528.index
 30765161.index
-=======
-INDEX VERSION 1.127+C:\Users\Leon\pmp2\workspace\.metadata\.plugins\org.eclipse.jdt.core
-130147870.index
-266268593.index
-946580212.index
-134296050.index
-2316102611.index
-35764307.index
-3208426689.index
-2548499729.index
-1410298062.index
-4159432100.index
-1891765932.index
-3803567967.index
-1957968718.index
-1179815636.index
-3883868377.index
-3264989491.index
-642964287.index
-1409493203.index
-3668621785.index
->>>>>>> 19cf1bd71e1e0b9ccffdac0a5ea9f299f5dcbafb
