@@ -19,17 +19,16 @@ public class Student implements Comparable<Student> {
 	public String toString() {
 		return MATRIKELNUMMER + " | " + NACHNAME + " 	| " + VORNAME;
 	}
-	
-	public void addPruefungsleistung(Pruefungsleistung pruefungsleistung){
+
+	public void addPruefungsleistung(Pruefungsleistung pruefungsleistung) {
 		liste1.add(pruefungsleistung);
 	}
 
-	public Student(String vorname, String nachname, int matrikelnummer, List<Pruefungsleistung> pruefungsleistung) {
+	public Student(String vorname, String nachname, int matrikelnummer) {
 
 		this.VORNAME = vorname;
 		this.NACHNAME = nachname;
 		this.MATRIKELNUMMER = matrikelnummer;
-		this.liste1 = pruefungsleistung;
 	}
 
 	public String getVORNAME() {
@@ -44,41 +43,60 @@ public class Student implements Comparable<Student> {
 		return MATRIKELNUMMER;
 	}
 
-	public static void main(String[] args) {
-
-		List<Student> liste1 = new LinkedList<Student>();
-
-		Student student = new Student("Peter", "Lustig", 923445);
-		
-		Student student2 = new Student("Siegfried", "Mustermax", 234411);
-		
-		Student student3 = new Student("Siegfriedd", "Mustermannn", 234421);
-		
-		Pruefungsleistung pruefungsleistung1 = new Pruefungsleistung(10, "Mathe");
-		Pruefungsleistung pruefungsleistung2 = new Pruefungsleistung(8, "Mathe");
-		Pruefungsleistung pruefungsleistung3 = new Pruefungsleistung(12, "Mathe");
-		
-		student.addPruefungsleistung(pruefungsleistung1);
-		student2.addPruefungsleistung(pruefungsleistung2);
-		student3.addPruefungsleistung(pruefungsleistung3);
-		
-		liste1.add(student);
-		liste1.add(student2);
-		liste1.add(student3);
-
-		Collections.sort(liste1);
-		for(Student elemente : liste1){
-			System.out.println(elemente);
-		}
-		int vergleich = new CompareStudent().compare(student, student2);
-		System.out.println(vergleich);
-		
-
-	}
-
-
 	@Override
 	public int compareTo(Student student) {
 		return getMATRIKELNUMMER() - student.getMATRIKELNUMMER();
 	}
+
+	public static void main(String[] args) {
+
+		List<Student> liste1 = new LinkedList<Student>();
+
+		Student student = new Student("Justus", "Jonas", 11111111);
+		Student student2 = new Student("Peter", "Shaw", 22222222);
+		Student student3 = new Student("Bob", "Andrews", 33333333);
+		Student student4 = new Student("Horst", "Schlemmer", 44444444);
+		Student student5 = new Student("Angela", "Schlemmer", 55555555);
+		Student student6 = new Student("Peter", "Pan", 66666666);
+
+		Pruefungsleistung pruefungsleistung = new Pruefungsleistung(10, "Mathe");
+		Pruefungsleistung pruefungsleistung2 = new Pruefungsleistung(8, "Mathe");
+		Pruefungsleistung pruefungsleistung3 = new Pruefungsleistung(12, "Mathe");
+		Pruefungsleistung pruefungsleistung4 = new Pruefungsleistung(9, "Mathe");
+		Pruefungsleistung pruefungsleistung5 = new Pruefungsleistung(11, "Mathe");
+		Pruefungsleistung pruefungsleistung6 = new Pruefungsleistung(15, "Mathe");
+
+		student.addPruefungsleistung(pruefungsleistung);
+		student2.addPruefungsleistung(pruefungsleistung2);
+		student3.addPruefungsleistung(pruefungsleistung3);
+		student4.addPruefungsleistung(pruefungsleistung4);
+		student5.addPruefungsleistung(pruefungsleistung5);
+		student6.addPruefungsleistung(pruefungsleistung6);
+
+		liste1.add(student6);
+		liste1.add(student5);
+		liste1.add(student4);
+		liste1.add(student3);
+		liste1.add(student2);
+		liste1.add(student);
+
+		System.out.println("-----unsortiert-----");
+
+		for (Student elemente : liste1) {
+			System.out.println(elemente);
+		}
+		System.out.println("-----geordnet-----");
+		Collections.sort(liste1);
+		for (Student elemente : liste1) {
+			System.out.println(elemente);
+		}
+		System.out.println("-----Nachname/Vorname-----");
+
+		CompareStudent vergleich = new CompareStudent();
+		Collections.sort(liste1, vergleich);
+		for (Student elemente : liste1) {
+			System.out.println(elemente);
+		}
+	}
+
 }
