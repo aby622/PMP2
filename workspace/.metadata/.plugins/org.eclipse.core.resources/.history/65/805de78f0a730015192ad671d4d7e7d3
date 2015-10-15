@@ -1,0 +1,99 @@
+package aufgabenblatt1;
+
+import java.util.Comparator;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.stream.Collectors;
+
+public class Student<Pruefungsleistung>
+		implements Comparable<Student<Pruefungsleistung>>, Comparator<Student<Pruefungsleistung>> {
+
+	private final String VORNAME;
+	private final String NACHNAME;
+	private final int MATRIKELNUMMER;
+	private Pruefungsleistung NOTE;
+	private Pruefungsleistung MODUL;
+
+	private List<Pruefungsleistung> liste1 = new LinkedList<Pruefungsleistung>();
+
+	public String toString() {
+		return liste1.stream().map((Pruefungsleistung pruefungsleistung) -> {
+			return pruefungsleistung.toString();
+		}).collect(Collectors.joining());
+	}
+
+	public Student(String vorname, String nachname, int matrikelnummer) {
+
+		this.VORNAME = vorname;
+		this.NACHNAME = nachname;
+		this.MATRIKELNUMMER = matrikelnummer;
+	}
+
+	@Override
+	public int compare(Student o1, Student o2) {
+		int matrikelnummer1 = o1.getMATRIKELNUMMER();
+		int matrikelnummer2 = o2.getMATRIKELNUMMER();
+		if(matrikelnummer1 < matrikelnummer2){
+			return 1;
+		}else{
+			return 2;
+		}
+		
+	}
+
+	@Override
+	public int compareTo(Student o) {
+		
+		return 0;
+	}
+
+	
+
+	public String getVORNAME() {
+		return VORNAME;
+	}
+
+	public String getNACHNAME() {
+		return NACHNAME;
+	}
+
+	public int getMATRIKELNUMMER() {
+		return MATRIKELNUMMER;
+	}
+
+	public Pruefungsleistung getNOTE() {
+		return NOTE;
+	}
+
+	public void setNOTE(Pruefungsleistung nOTE) {
+		NOTE = nOTE;
+	}
+
+	public Pruefungsleistung getMODUL() {
+		return MODUL;
+	}
+
+	public void setMODUL(Pruefungsleistung mODUL) {
+		MODUL = mODUL;
+	}
+	public static void main(String[] args) {
+	
+		List liste1 = new LinkedList();
+		
+		Student<String> student = new Student<String>("Peter", "Lustig", 123445);
+		student.setMODUL("ET");
+		student.setNOTE("12");
+		Student<String> student2 = new Student<String>("Siegfried", "Mustermann", 234411);
+		student2.setMODUL("PM2");
+		student2.setNOTE("10");
+		Student<String> student3 = new Student<String>("Siegfriedd", "Mustermannn", 234421);
+		student2.setMODUL("PM2");
+		student2.setNOTE("9");
+		liste1.add(student);
+		liste1.add(student2);
+		liste1.add(student3);
+		
+		System.out.print(liste1);
+
+	}
+}

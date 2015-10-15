@@ -1,45 +1,36 @@
 package aufgabenblatt1;
 
+import java.util.Collections;
 import java.util.Comparator;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
-public class Student<Pruefungsleistung>
-		implements Comparable<Student<Pruefungsleistung>>, Comparator<Student<Pruefungsleistung>> {
+public class Student implements Comparable<Student> {
 
 	private final String VORNAME;
 	private final String NACHNAME;
 	private final int MATRIKELNUMMER;
-	private Pruefungsleistung NOTE;
-	private Pruefungsleistung MODUL;
 
 	private List<Pruefungsleistung> liste1 = new LinkedList<Pruefungsleistung>();
 
+	@Override
 	public String toString() {
-		return liste1.stream().map((Pruefungsleistung pruefungsleistung) -> {
-			return pruefungsleistung.toString();
-		}).collect(Collectors.joining());
+		return MATRIKELNUMMER + " | " + NACHNAME + " 	| " + VORNAME;
+	}
+	
+	public void addPruefungsleistung(Pruefungsleistung pruefungsleistung){
+		liste1.add(pruefungsleistung);
 	}
 
-	public Student(String vorname, String nachname, int matrikelnummer) {
+	public Student(String vorname, String nachname, int matrikelnummer, List<Pruefungsleistung> pruefungsleistung) {
 
 		this.VORNAME = vorname;
 		this.NACHNAME = nachname;
 		this.MATRIKELNUMMER = matrikelnummer;
+		this.liste1 = pruefungsleistung;
 	}
-
-	@Override
-	public int compare(Student o1, Student o2) {
-		return 0;
-	}
-
-	@Override
-	public int compareTo(Student<Pruefungsleistung> o) {
-		return 0;
-	}
-
-	
 
 	public String getVORNAME() {
 		return VORNAME;
@@ -53,29 +44,41 @@ public class Student<Pruefungsleistung>
 		return MATRIKELNUMMER;
 	}
 
-	public Pruefungsleistung getNOTE() {
-		return NOTE;
-	}
-
-	public void setNOTE(Pruefungsleistung nOTE) {
-		NOTE = nOTE;
-	}
-
-	public Pruefungsleistung getMODUL() {
-		return MODUL;
-	}
-
-	public void setMODUL(Pruefungsleistung mODUL) {
-		MODUL = mODUL;
-	}
 	public static void main(String[] args) {
-	
-		
-		Student<String> student = new Student<String>("Peter", "Lustig", 123445);
-		student.setMODUL("ET");
-		student.setNOTE("12");
-		
-		System.out.print(student.getMODUL());
 
+		List<Student> liste1 = new LinkedList<Student>();
+
+		Student student = new Student("Peter", "Lustig", 923445);
+		
+		Student student2 = new Student("Siegfried", "Mustermax", 234411);
+		
+		Student student3 = new Student("Siegfriedd", "Mustermannn", 234421);
+		
+		Pruefungsleistung pruefungsleistung1 = new Pruefungsleistung(10, "Mathe");
+		Pruefungsleistung pruefungsleistung2 = new Pruefungsleistung(8, "Mathe");
+		Pruefungsleistung pruefungsleistung3 = new Pruefungsleistung(12, "Mathe");
+		
+		student.addPruefungsleistung(pruefungsleistung1);
+		student2.addPruefungsleistung(pruefungsleistung2);
+		student3.addPruefungsleistung(pruefungsleistung3);
+		
+		liste1.add(student);
+		liste1.add(student2);
+		liste1.add(student3);
+
+		Collections.sort(liste1);
+		for(Student elemente : liste1){
+			System.out.println(elemente);
+		}
+		int vergleich = new CompareStudent().compare(student, student2);
+		System.out.println(vergleich);
+		
+
+	}
+
+
+	@Override
+	public int compareTo(Student student) {
+		return getMATRIKELNUMMER() - student.getMATRIKELNUMMER();
 	}
 }
