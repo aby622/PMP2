@@ -6,40 +6,59 @@
  */
 package aufgabenblatt1;
 
+import java.util.Collections;
+
 /**
  * Klasse ArrayListe
+ * 
  * @author Leon & Jannes
  */
-public class ArrayListe <T>{
-	
+public class ArrayListe<T> {
+
 	int anzahlElemente;
 	private Object[] elemente;
-	
-	public ArrayListe(){
-		
+
+	public ArrayListe() {
+
 	}
-	public <T> void hinzufuegen(){
-		
+
+	public <T> void hinzufuegen() {
+
 	}
-	public int get(int index){
+
+	public int get(int index) {
+		for (Object object : elemente) {
+			if (elemente[index] == elemente[index]) {
+				System.out.println(object);
+			}
+		}
 		return 0;
 	}
-	public <T> void entfernen(){
-		
+
+	public <T> void entfernen() {
+
 	}
-	public void entferneElementAnIndex(int index){
-	
+
+	public void entferneElementAnIndex(int index) {
+
 	}
-	public int getAnzahlElemente(){
+
+	public int getAnzahlElemente() {
 		anzahlElemente = elemente.length;
 		return anzahlElemente;
-		
+
 	}
-	public String toString(){
+
+	public String toString() {
+		for (Object object : elemente) {
+			System.out.println(object);
+		}
 		return null;
-		
+
 	}
-	public void getKleinstesElement(){
-		
+
+	public void getKleinstesElement() {
+		Collections.min(elemente);
+
 	}
 }
