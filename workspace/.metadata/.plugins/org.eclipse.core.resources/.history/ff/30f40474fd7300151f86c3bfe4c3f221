@@ -1,0 +1,68 @@
+/**
+ * PMP2, WS 2015/16
+ * Gruppe: Jannes Volkens (jannes.volkens@haw-hamburg.de),
+ * Leon Schlichting (leon.schlichting@haw-hamburg.de)
+ * Aufgabe: Aufgabenblatt 1, Aufgabe 1.4
+ */
+package aufgabenblatt1;
+
+/**
+ * Klasse Pruefungsleistung Eine Pruefungsleistung besteht aus einer Note und
+ * einem Modul
+ * 
+ * @author Leon & Jannes
+ */
+public class Pruefungsleistung {
+	/**
+	 * privates int Objekt für die Note
+	 */
+	private int NOTE;
+	/**
+	 * privates String Objekt für das Modul
+	 */
+	private String MODUL;
+
+	/**
+	 * Konstruktor
+	 */
+	public Pruefungsleistung(int note, String modul) {
+		this.NOTE = note;
+		this.MODUL = modul;
+	}
+
+	/**
+	 * Getter
+	 */
+	public int getNOTE() {
+		return NOTE;
+	}
+
+	/**
+	 * Setter
+	 */
+	public void setNOTE(int nOTE) {
+		NOTE = nOTE;
+	}
+
+	/**
+	 * Getter
+	 */
+	public String getMODUL() {
+		return MODUL;
+	}
+
+	/**
+	 * Setter
+	 */
+	public void setMODUL(String mODUL) {
+		MODUL = mODUL;
+	}
+	/**
+	 * Ueberschriebene toString() Methode
+	 */
+	@Override
+	public String toString() {
+		return MODUL + ", " + NOTE;
+
+	}
+}

@@ -1,10 +1,18 @@
+/**
+ * PMP2, WS 2015/16
+ * Gruppe: Jannes Volkens (jannes.volkens@haw-hamburg.de),
+ * Leon Schlichting (leon.schlichting@haw-hamburg.de)
+ * Aufgabe: Aufgabenblatt 1, Aufgabe 1.4
+ */
 package aufgabenblatt1;
 
-//entfernt
-
+/**
+ * Klasse ArrayListe
+ * @author Leon & Jannes
+ */
 public class ArrayListe <T>{
 	
-	private int anzahlElemente;
+	int anzahlElemente;
 	private Object[] elemente;
 	
 	public ArrayListe(){
@@ -20,9 +28,10 @@ public class ArrayListe <T>{
 		
 	}
 	public void entferneElementAnIndex(int index){
-		
+	
 	}
 	public int getAnzahlElemente(){
+		anzahlElemente = elemente.length;
 		return anzahlElemente;
 		
 	}
