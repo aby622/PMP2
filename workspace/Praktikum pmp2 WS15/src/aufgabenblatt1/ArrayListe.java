@@ -19,28 +19,55 @@ public class ArrayListe<T> {
 	private Object[] elemente;
 
 	public ArrayListe() {
+		this.elemente = new Object[10];
+		this.anzahlElemente = 0;
 
 	}
 
 	public <T> void hinzufuegen() {
-
+		T t = null;
+		anzahlElemente = elemente.length;
+		// wenn das momentane Array maximal gefüllt ist wird ein doppelt großes
+		// Objektarray erstellt
+		if (this.elemente.length == this.anzahlElemente) {
+			Object[] neuesElemente = new Object[this.elemente.length * 2];
+			// die Einträge werdenkopiert
+			for (int i = 0; i < this.elemente.length; i++) {
+				neuesElemente[i] = this.elemente[i];
+			} // das neue Array wird typegecastetund dem Attributzugewiesen
+			this.elemente = (T[]) neuesElemente;
+		}
+		this.elemente[this.anzahlElemente] = t;
+		this.anzahlElemente++;
 	}
 
 	public int get(int index) {
-		for (Object object : elemente) {
-			if (elemente[index] == elemente[index]) {
-				System.out.println(object);
-			}
-		}
-		return 0;
+		return (int) elemente[index];
 	}
 
 	public <T> void entfernen() {
-
+		T t = null;
+		for (int i = 0; i <= elemente.length; i++) {
+			if (this.elemente[i] == t) {
+				for (int j = i; j <= elemente.length - 1; j++) {
+					this.elemente[j] = this.elemente[j + 1];
+				}
+				anzahlElemente = elemente.length - 1;
+			}
+		}
 	}
 
 	public void entferneElementAnIndex(int index) {
+		for (int i = 0; i <= elemente.length; i++) {
+			if (this.elemente[i] == elemente[index]) {
+				for (int index2 = i; index2 <= elemente.length - 1; index2++) {
+					this.elemente[index2] = this.elemente[index2 + 1];
 
+				}
+				anzahlElemente = elemente.length;
+				this.anzahlElemente = this.anzahlElemente - 1;
+			}
+		}
 	}
 
 	public int getAnzahlElemente() {
@@ -53,12 +80,11 @@ public class ArrayListe<T> {
 		for (Object object : elemente) {
 			System.out.println(object);
 		}
-		return null;
+		return "" + anzahlElemente;
 
 	}
 
 	public void getKleinstesElement() {
-		Collections.min(elemente);
 
 	}
 }
