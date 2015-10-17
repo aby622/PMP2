@@ -25,7 +25,6 @@ public class ArrayListe<T> {
 	}
 
 	public <T> void hinzufuegen() {
-		T t = null;
 		anzahlElemente = elemente.length;
 		// wenn das momentane Array maximal gefüllt ist wird ein doppelt großes
 		// Objektarray erstellt
@@ -37,7 +36,7 @@ public class ArrayListe<T> {
 			} // das neue Array wird typegecastetund dem Attributzugewiesen
 			this.elemente = (T[]) neuesElemente;
 		}
-		this.elemente[this.anzahlElemente] = t;
+		this.elemente[this.anzahlElemente] = elemente;
 		this.anzahlElemente++;
 	}
 
