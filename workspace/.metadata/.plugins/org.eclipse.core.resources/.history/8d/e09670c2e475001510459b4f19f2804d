@@ -1,0 +1,14 @@
+package aufgabenblatt1;
+
+public class Pruefklasse {
+	
+	public static Object[] elemente;
+	
+	public static boolean pruefe(){
+		if(elemente[0] instanceof Integer){
+			return true;
+		}else
+			return false;
+	}
+
+}
