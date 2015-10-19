@@ -17,6 +17,10 @@ public class ArrayListe<T> {
    * Array vom Typ Object und die Anzahl der Elemente
    */
   private Object[] elemente = {};
+
+  /**
+   * int anzahlElemente für Anzahl der Elemente
+   */
   private int anzahlElemente;
 
   /**
@@ -128,7 +132,6 @@ public class ArrayListe<T> {
 	  rueckgabe += elemente[i] + " ";
 	  i++;
 	}
-
 	return rueckgabe;
   }
 

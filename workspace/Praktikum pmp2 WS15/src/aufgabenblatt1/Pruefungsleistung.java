@@ -13,10 +13,12 @@ package aufgabenblatt1;
  * @author Leon & Jannes
  */
 public class Pruefungsleistung {
+
   /**
    * privates int Objekt für die Note
    */
   private int note;
+
   /**
    * privates String Objekt für das Modul
    */

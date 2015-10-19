@@ -32,10 +32,10 @@ public class Student implements Comparable<Student> {
    * privates finales int Objekt für die Matrikelnummer
    */
   private int matrikelnummer;
+
   /**
    * privates Liste in die die Pruefungsleistungen integriert werden
    */
-
   private List<Pruefungsleistung> liste1 = new LinkedList<Pruefungsleistung>();
 
   /**

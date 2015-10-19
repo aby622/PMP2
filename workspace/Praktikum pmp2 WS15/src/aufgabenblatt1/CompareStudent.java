@@ -15,6 +15,7 @@ import java.util.Comparator;
  * @author Leon & Jannes
  */
 public class CompareStudent implements Comparator<Student> {
+
   /**
    * Ueberschriebene compare Methode aus Comparator Interface Sie vergleicht den
    * Nachnamen zweier Studenten und lädt den Wert in ein int Objekt. ist das
@@ -26,7 +27,6 @@ public class CompareStudent implements Comparator<Student> {
    */
   @Override
   public int compare(Student student1, Student student2) {
-
 	int student = student1.getNACHNAME().compareTo(student2.getNACHNAME());
 	if (student == 0) {
 	  return student1.getVORNAME().compareTo(student2.getVORNAME());
