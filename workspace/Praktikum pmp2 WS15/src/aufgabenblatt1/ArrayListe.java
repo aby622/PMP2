@@ -11,7 +11,7 @@ package aufgabenblatt1;
  * 
  * @author Leon & Jannes
  */
-public class ArrayListe<T extends Comparable<T>> {
+public class ArrayListe<T> {
 
   /**
    * Array vom Typ Object und die Anzahl der Elemente
