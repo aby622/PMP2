@@ -44,6 +44,8 @@ public class ArrayListe<T extends Comparable<T>> {
 
   /**
    * Die Methode 'get' liefert das Element am Index.
+   * @param rueckgabe
+   * @return rueckgabe
    */
   public T get(int index) {
 	Object rueckgabe = 0;
@@ -58,6 +60,7 @@ public class ArrayListe<T extends Comparable<T>> {
 
   /**
    * Die Methode 'entfernen' entfernt das gewünschte Element aus der Arrayliste.
+   * @param laenge ist die laenge des arrays -1 da am ende ein Element fehlt
    */
   public void entfernen(T element) {
 	// Das Element bekommt den Wert null zugewiesen.
@@ -85,6 +88,7 @@ public class ArrayListe<T extends Comparable<T>> {
   /**
    * Die Methode 'entferneElementAnIndex' entfernt das Element welches sich an
    * dem Index befindet.
+   * @param laenge elementen laenge -1 da ein Element später fehlt
    */
   public void entferneElementAnIndex(int index) {
 	int laenge = elemente.length - 1;
@@ -104,6 +108,7 @@ public class ArrayListe<T extends Comparable<T>> {
   /**
    * Die Methode 'getAnzahlElemente' liefert die Anzahl der Elemente in der
    * Arrayliste.
+   * @return anzahlElemente
    */
   public int getAnzahlElemente() {
 	anzahlElemente = elemente.length;
@@ -112,6 +117,7 @@ public class ArrayListe<T extends Comparable<T>> {
 
   /**
    * Die Methode 'toString' gibt die Arrayliste als String wieder.
+   * @return rueckgabe gibt String wieder
    */
   @Override
   public String toString() {
@@ -129,6 +135,8 @@ public class ArrayListe<T extends Comparable<T>> {
   /**
    * Die Methode 'getKleinstesElement' überprüft welches Element das Kleinste
    * ist und gibt dieses wieder.
+   * @param ergebnis
+   * @return ergebnis
    */
   public T getKleinstesElement() {
 	Object ergebnis = elemente[0];
@@ -146,6 +154,8 @@ public class ArrayListe<T extends Comparable<T>> {
 
   /**
    * Die Methode 'berechne' gibt die Elemente der Arrayliste als Summe wieder.
+   * @param ergebnis 
+   * @return ergebnis
    */
   public int berechne() {
 	int ergebnis = 0;
@@ -160,6 +170,13 @@ public class ArrayListe<T extends Comparable<T>> {
 	return ergebnis;
   }
 
+  /**
+   * Methode getKleinstesElementNeu verwendet Comparable<T> damit wir beliebige
+   * Elementtypen mieinander vergleichen können
+   * @param ergebnis vom Typ T wird zum Vergleich benötigt
+   * @param ergbnis2 vom Typ T wird zum Vergleich benötigt
+   * @return ergebnis gibt das kleinste Element aus
+   */
   public <T extends Comparable<T>> T getKleinstesElementNEU() {
 	T ergebnis = (T) elemente[0];
 	// Die Elemente werden miteinander verglichen und das kleinste wird
