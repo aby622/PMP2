@@ -1,0 +1,17 @@
+package aufgabenblatt1;
+
+
+
+public class Pruefklasse<T>{
+	ArrayListe<T>[] liste;
+	int t;
+	public boolean isFirstElementAnInt(){
+		for(int i=0; i< liste.length;i++) {
+            if (liste[i].equals(t)){
+                return true;
+            }
+		}
+		return false;
+	}
+
+}

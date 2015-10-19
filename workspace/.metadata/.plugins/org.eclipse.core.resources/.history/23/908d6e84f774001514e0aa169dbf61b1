@@ -1,0 +1,121 @@
+/**
+ * PMP2, WS 2015/16
+ * Gruppe: Jannes Volkens (jannes.volkens@haw-hamburg.de),
+ * Leon Schlichting (leon.schlichting@haw-hamburg.de)
+ * Aufgabe: Aufgabenblatt 1, Aufgabe 1.4
+ */
+package aufgabenblatt1;
+
+import java.util.Collection;
+import java.util.Collections;
+import java.util.LinkedList;
+import java.util.List;
+
+/**
+ * Klasse ArrayListe
+ * 
+ * @author Leon & Jannes
+ */
+public class ArrayListe<T> {
+
+	int anzahlElemente;
+	private Object[] elemente;
+
+	public ArrayListe() {
+		this.elemente = new Object[5];
+		this.anzahlElemente = 0;
+	}
+
+	public void hinzufuegen(T object) {
+		Object[] neuesElement = new Object[elemente.length];
+		int i = 0;
+		while (i < elemente.length) {
+
+			neuesElement[i] = elemente[i];
+			i++;
+		}
+		anzahlElemente = neuesElement.length;
+		neuesElement[anzahlElemente - 1] = object;
+		elemente = neuesElement;
+	}
+
+	public T get(int index) {
+		System.out.println(elemente[index]);
+		return (T) elemente[index];
+	}
+
+	public void entfernen(T object) {
+		for (int i = 0; i <= elemente.length; i++) {
+			if (elemente[i] == object) {
+				for (int j = i; j <= elemente.length - 1; j++) {
+					elemente[j] = elemente[j + 1];
+				}
+				anzahlElemente = elemente.length - 1;
+			}
+		}
+	}
+
+	public void entferneElementAnIndex(int index) {
+		int laenge = elemente.length;
+		Object[] neuesElemente = new Object[laenge - 1];
+		int i = 0;
+		while (i < elemente.length) {
+			if (elemente[index] != elemente[index]) {
+				int zaehler = 0;
+				neuesElemente[zaehler] = elemente[zaehler];
+				zaehler++;
+				i++;
+			}
+		}
+		elemente = neuesElemente;
+	}
+
+	public int getAnzahlElemente() {
+		anzahlElemente = elemente.length;
+		System.out.println(anzahlElemente);
+		return anzahlElemente;
+
+	}
+
+	public String toString() {
+		int elementenZahl;
+		for (Object object : elemente) {
+			System.out.println(object);
+		}
+		elementenZahl = elemente.length;
+		return "" + "ANZAHL ELEMENTE: " + elementenZahl;
+
+	}
+
+	public T getKleinstesElement() {
+		Object smallest = elemente[0];
+		int i = 1;
+		while (i < elemente.length) {
+			if (elemente[i].compareTo(smallest) < 0) {
+				smallest = elemente[i];
+				i++;
+			}
+		}
+	}
+
+	public static void main(String[] args) {
+
+		ArrayListe<Object> liste1 = new ArrayListe<Object>();
+
+		liste1.hinzufuegen("hallo");
+		System.out.println(liste1);
+		System.out.println("---");
+		liste1.entfernen(2);
+
+		System.out.println(liste1);
+		System.out.println("---");
+		liste1.get(3);
+		System.out.println("---");
+		liste1.getAnzahlElemente();
+		System.out.println("---");
+		System.out.println("entfernen");
+		liste1.entferneElementAnIndex(2);
+		System.out.println(liste1);
+
+	}
+}

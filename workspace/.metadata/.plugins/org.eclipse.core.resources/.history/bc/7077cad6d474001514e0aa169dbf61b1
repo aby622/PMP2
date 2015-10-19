@@ -1,0 +1,12 @@
+package aufgabenblatt1;
+
+import java.util.List;
+
+public class Pruefklasse (){
+	
+	
+	public boolean isFirstElementAnInt(){
+	
+	}
+
+}
