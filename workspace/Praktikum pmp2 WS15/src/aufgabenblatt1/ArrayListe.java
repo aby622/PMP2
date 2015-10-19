@@ -6,8 +6,6 @@
  */
 package aufgabenblatt1;
 
-import java.util.Collections;
-
 /**
  * Klasse ArrayListe
  * 
@@ -15,92 +13,150 @@ import java.util.Collections;
  */
 public class ArrayListe<T> {
 
-	int anzahlElemente;
-	private Object[] elemente;
+  /**
+   * Array vom Typ Object und die Anzahl der Elemente
+   */
+  private Object[] elemente = {};
+  private int anzahlElemente;
 
-	public ArrayListe() {
-		this.elemente = new Object[10];
-		this.anzahlElemente = 0;
+  /**
+   * Konstruktor
+   */
+  public ArrayListe() {
+  }
+
+  /**
+   * Die Methode'hinzufuegen' fügt der Arrayliste beliebige Elemente hinzu.
+   */
+  public void hinzufuegen(T element) {
+	// Neue Arrayliste wird erstellt die ein Element mehr besitzt als die
+	// Alte.
+	Object[] neuesElemente = new Object[elemente.length + 1];
+	// Elemente werden in die neue Liste kopiert.
+	for (int i = 0; i < elemente.length; i++) {
+	  neuesElemente[i] = elemente[i];
+	}
+	anzahlElemente = neuesElemente.length;
+	// Das neue Element wird an die Liste angehängt.
+	neuesElemente[anzahlElemente - 1] = element;
+	elemente = neuesElemente;
+  }
+
+  /**
+   * Die Methode 'get' liefert das Element am Index.
+   */
+  public T get(int index) {
+	Object rueckgabe = 0;
+	// Element am Index wird bestimmt
+	for (int i = 0; i < elemente.length; i++) {
+	  if (i == index) {
+		rueckgabe = elemente[i];
+	  }
+	}
+	return (T) rueckgabe;
+  }
+
+  /**
+   * Die Methode 'entfernen' entfernt das gewünschte Element aus der Arrayliste.
+   */
+  public void entfernen(T element) {
+	// Das Element bekommt den Wert null zugewiesen.
+	for (int i = 0; i < elemente.length; i++) {
+	  if (elemente[i] == element) {
+		elemente[i] = null;
+		break;
+	  }
+	}
+	// Eine neue Liste, mit einem Element weniger wird erstellt.
+	int laenge = elemente.length - 1;
+	Object[] neuesElemente = new Object[laenge];
+	int a = 0;
+	// Alle Elemente werden aus der alten Liste kopiert, bis auf das Element
+	// welches den Wert null hat.
+	for (int i = 0; i < elemente.length; i++) {
+	  if (elemente[i] != null) {
+		neuesElemente[a] = elemente[i];
+		a++;
+	  }
+	}
+	elemente = neuesElemente;
+  }
+
+  /**
+   * Die Methode 'entferneElementAnIndex' entfernt das Element welches sich an
+   * dem Index befindet.
+   */
+  public void entferneElementAnIndex(int index) {
+	int laenge = elemente.length - 1;
+	// Eine neue Liste mit einem Element weniger wird erstellt.
+	// Das Element an Index wird entfernt und die übrigen Elemente rücken
+	// auf.
+	Object[] neuesElemente = new Object[laenge];
+	for (int i = 0; i < laenge; i++) {
+	  neuesElemente[i] = elemente[i];
+	}
+	for (int i = index; i < laenge; i++) {
+	  neuesElemente[i] = elemente[i + 1];
+	}
+	elemente = neuesElemente;
+  }
+
+  /**
+   * Die Methode 'getAnzahlElemente' liefert die Anzahl der Elemente in der
+   * Arrayliste.
+   */
+  public int getAnzahlElemente() {
+	anzahlElemente = elemente.length;
+	return anzahlElemente;
+  }
+
+  /**
+   * Die Methode 'toString' gibt die Arrayliste als String wieder.
+   */
+  @Override
+  public String toString() {
+	String rueckgabe = "";
+	// Die einzelnen Elemente werden dem String hinzugefügt.
+	int i = 0;
+	while (i < elemente.length) {
+	  rueckgabe += elemente[i] + " ";
+	  i++;
 	}
 
-	public <T> void hinzufuegen() {
-		int laenge = elemente.length;
-		if (laenge == elemente.length) {
-			Object[] neuesElemente = new Object[laenge + 1];
-			// die Einträge werdenkopiert
-			for (int i = 0; i < laenge; i++) {
-				neuesElemente[i] = elemente[i];
-			} // das neue Array wird typegecastet und dem Attributt zugewiesen
-			elemente = (T[]) neuesElemente;
-		}
+	return rueckgabe;
+  }
+
+  /**
+   * Die Methode 'getKleinstesElement' überprüft welches Element das Kleinste
+   * ist und gibt dieses wieder.
+   */
+  public T getKleinstesElement() {
+	Object ergebnis = elemente[0];
+	// Die Elemente werden miteinander verglichen und das kleinste wird
+	// zurückgegeben
+	int i = 0;
+	while (i < elemente.length) {
+	  if (elemente[i] instanceof Integer && (Integer) elemente[i] < (Integer) ergebnis) {
+		ergebnis = elemente[i];
+	  }
+	  i++;
 	}
+	return (T) ergebnis;
+  }
 
-	public T get(int index) {
-		System.out.println(elemente[index]);
-		return (T) elemente[index];
+  /**
+   * Die Methode 'berechne' gibt die Elemente der Arrayliste als Summe wieder.
+   */
+  public int berechne() {
+	int ergebnis = 0;
+	// Die Elemente werden zusammen addiert.
+	int i = 0;
+	while (i < elemente.length) {
+	  if (elemente[i] instanceof Integer) {
+		ergebnis += (Integer) elemente[i];
+	  }
+	  i++;
 	}
-
-	public <T> void entfernen() {
-		int laenge = elemente.length;
-		if (laenge == elemente.length) {
-			Object[] neuesElemente = new Object[laenge - 1];
-			int i = 0;
-			// die Einträge werdenkopiert
-			while (i > laenge) {
-				neuesElemente[i] = elemente[i];
-				i++;
-			} // das neue Array wird typegecastet und dem Attributt zugewiesen
-			elemente = (T[]) neuesElemente;
-		}
-	}
-
-	public void entferneElementAnIndex(int index) {
-		int laenge = elemente.length;
-		Object[] neuesElemente = new Object[laenge - 1];
-		for (Object object : elemente) {
-			if (elemente[index] != elemente[index]) {
-				int zaehler = 0;
-				neuesElemente[zaehler] = elemente[zaehler];
-				zaehler++;
-			}
-		}
-		elemente = (T[]) neuesElemente;
-	}
-
-	public int getAnzahlElemente() {
-		anzahlElemente = elemente.length;
-		System.out.println(anzahlElemente);
-		return anzahlElemente;
-
-	}
-
-	public String toString() {
-		int elementenZahl;
-		for (Object object : elemente) {
-			System.out.println(object);
-		}
-		elementenZahl = elemente.length;
-		return "" + "ANZAHL ELEMENTE: " + elementenZahl;
-
-	}
-
-	public void getKleinstesElement() {
-
-	}
-
-	public static void main(String[] args) {
-		ArrayListe<Integer> liste1 = new ArrayListe<Integer>();
-		System.out.println(liste1);
-		liste1.hinzufuegen();
-		System.out.println(liste1);
-		liste1.get(3);
-		liste1.getAnzahlElemente();
-		System.out.println("entfernen");
-		liste1.entfernen();
-		System.out.println(liste1);
-		liste1.entferneElementAnIndex(2);
-		System.out.println(liste1);
-		
-
-	}
+	return ergebnis;
+  }
 }

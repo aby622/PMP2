@@ -15,19 +15,22 @@ import java.util.Comparator;
  * @author Leon & Jannes
  */
 public class CompareStudent implements Comparator<Student> {
-	/**
-	 * Ueberschriebene compare Methode aus Comparator Interface Sie vergleicht
-	 * den Nachnamen zweier Studenten und lädt den Wert in ein int Objekt. ist
-	 * das Objekt 0, also gleich, soll die Methode den Vornamen vergleichen und
-	 * gibt dann einen int Wert zurück
-	 */
-	@Override
-	public int compare(Student student1, Student student2) {
+  /**
+   * Ueberschriebene compare Methode aus Comparator Interface Sie vergleicht den
+   * Nachnamen zweier Studenten und lädt den Wert in ein int Objekt. ist das
+   * Objekt 0, also gleich, soll die Methode den Vornamen vergleichen und gibt
+   * dann einen int Wert zurück
+   * 
+   * @param student wird mit der Vergleichsnummer gefüllt
+   * @return student gibt die Vergleichsnummer zurück
+   */
+  @Override
+  public int compare(Student student1, Student student2) {
 
-		int student = student1.getNACHNAME().compareTo(student2.getNACHNAME());
-		if (student == 0) {
-			return student1.getVORNAME().compareTo(student2.getVORNAME());
-		}
-		return student;
+	int student = student1.getNACHNAME().compareTo(student2.getNACHNAME());
+	if (student == 0) {
+	  return student1.getVORNAME().compareTo(student2.getVORNAME());
 	}
+	return student;
+  }
 }

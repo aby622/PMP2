@@ -13,57 +13,59 @@ package aufgabenblatt1;
  * @author Leon & Jannes
  */
 public class Pruefungsleistung {
-	/**
-	 * privates int Objekt für die Note
-	 */
-	private int note;
-	/**
-	 * privates String Objekt für das Modul
-	 */
-	private String modul;
+  /**
+   * privates int Objekt für die Note
+   */
+  private int note;
+  /**
+   * privates String Objekt für das Modul
+   */
+  private String modul;
 
-	/**
-	 * Konstruktor
-	 */
-	public Pruefungsleistung(int note, String modul) {
-		this.note = note;
-		this.modul = modul;
-	}
+  /**
+   * Konstruktor
+   */
+  public Pruefungsleistung(int note, String modul) {
+	this.note = note;
+	this.modul = modul;
+  }
 
-	/**
-	 * Getter
-	 */
-	public int getNOTE() {
-		return note;
-	}
+  /**
+   * Getter
+   */
+  public int getNOTE() {
+	return note;
+  }
 
-	/**
-	 * Setter
-	 */
-	public void setNOTE(int nOTE) {
-		note = nOTE;
-	}
+  /**
+   * Setter
+   */
+  public void setNOTE(int nOTE) {
+	note = nOTE;
+  }
 
-	/**
-	 * Getter
-	 */
-	public String getMODUL() {
-		return modul;
-	}
+  /**
+   * Getter
+   */
+  public String getMODUL() {
+	return modul;
+  }
 
-	/**
-	 * Setter
-	 */
-	public void setMODUL(String mODUL) {
-		modul = mODUL;
-	}
+  /**
+   * Setter
+   */
+  public void setMODUL(String mODUL) {
+	modul = mODUL;
+  }
 
-	/**
-	 * Ueberschriebene toString() Methode
-	 */
-	@Override
-	public String toString() {
-		return modul + ", " + note;
+  /**
+   * Ueberschriebene toString() Methode
+   * 
+   * @return String
+   */
+  @Override
+  public String toString() {
+	return modul + ", " + note;
 
-	}
+  }
 }
