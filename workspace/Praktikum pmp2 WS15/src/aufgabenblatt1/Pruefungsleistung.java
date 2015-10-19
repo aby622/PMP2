@@ -40,24 +40,10 @@ public class Pruefungsleistung {
   }
 
   /**
-   * Setter
-   */
-  public void setNOTE(int nOTE) {
-	note = nOTE;
-  }
-
-  /**
    * Getter
    */
   public String getMODUL() {
 	return modul;
-  }
-
-  /**
-   * Setter
-   */
-  public void setMODUL(String mODUL) {
-	modul = mODUL;
   }
 
   /**

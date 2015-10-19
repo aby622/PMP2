@@ -86,6 +86,9 @@ public class Student implements Comparable<Student> {
 	return matrikelnummer;
   }
 
+  public Object[] getPruefungsleistung(){
+	return liste1.toArray();
+  }
   /**
    * Überschriebene compareTo Methode, die die Matrikelnummer der Studenten
    * vergleicht

@@ -87,4 +87,21 @@ public class JUnitStudent {
 	String result = "[11111111JonasJustus, 22222222ShawerPeter, 33333333AndrewsBob, 44444444SchlemmerHorst, 55555555SchlemmerAngela, 66666666PannePeter]";
 	assertEquals(liste1.toString(), result);
   }
+  @Test
+  public void testStudentPruefungsleistung(){
+	List<Student> liste1 = new LinkedList<Student>();
+
+	Student student = new Student("Justus", "Jonas", 11111111);
+	Student student2 = new Student("Peter", "Shawer", 22222222);
+	Pruefungsleistung pruefungsleistung = new Pruefungsleistung(10, "Mathe");
+	Pruefungsleistung pruefungsleistung2 = new Pruefungsleistung(9, "Mathe");
+	student.addPruefungsleistung(pruefungsleistung);
+	student2.addPruefungsleistung(pruefungsleistung2);
+	liste1.add(student);
+	liste1.add(student2);
+	String result = "Mathe, 10";
+	String result2 = "Mathe, 9";
+	assertEquals(student.getPruefungsleistung()[0].toString(), result);
+	assertEquals(student2.getPruefungsleistung()[0].toString(), result2);
+  }
 }
