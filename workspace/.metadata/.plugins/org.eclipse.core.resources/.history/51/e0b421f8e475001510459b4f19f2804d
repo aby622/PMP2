@@ -12,20 +12,13 @@ package aufgabenblatt1;
  * @author Leon & Jannes
  */
 public class Pruefklasse {
-
-	/**
-	 * Array vom Typ Object.
-	 */
+	
 	public static Object[] elemente;
-
-	/**
-	 * Die Methode 'pruefe' prüft ob das erste Element des Arrays ein Integer
-	 * ist.
-	 */
-	public static boolean pruefe() {
-		if (elemente[0] instanceof Integer) {
+	
+	public static boolean pruefe(){
+		if(elemente[0] instanceof Integer){
 			return true;
-		} else
+		}else
 			return false;
 	}
 
