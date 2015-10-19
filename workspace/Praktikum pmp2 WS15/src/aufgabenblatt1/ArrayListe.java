@@ -11,7 +11,7 @@ package aufgabenblatt1;
  * 
  * @author Leon & Jannes
  */
-public class ArrayListe<T> {
+public class ArrayListe<T extends Comparable<T>> {
 
   /**
    * Array vom Typ Object und die Anzahl der Elemente
@@ -158,5 +158,20 @@ public class ArrayListe<T> {
 	  i++;
 	}
 	return ergebnis;
+  }
+
+  public <T extends Comparable<T>> T getKleinstesElementNEU() {
+	T ergebnis = (T) elemente[0];
+	// Die Elemente werden miteinander verglichen und das kleinste wird
+	// zurückgegeben
+	int i = 0;
+	while (i < elemente.length) {
+	  T original = (T) elemente[i];
+	  if (original.compareTo(ergebnis) == -1) {
+		ergebnis = (T) elemente[i];
+	  }
+	  i++;
+	}
+	return (T) ergebnis;
   }
 }
