@@ -26,6 +26,12 @@ public static void main(String[]args){
   
   liste = streamString.collect(Collectors.toList());
   
+  streamString = liste.stream().map(String::trim);
+  liste = streamString.collect(Collectors.toList());
+  streamString = liste.stream().map(String::toUpperCase);
+  liste = streamString.collect(Collectors.toList());
+  streamString = liste.stream().map(String::max(8));// auf 8 CHARS kürzen!!!!!!!!!!!!
+  
   System.out.println(liste);
   
 
