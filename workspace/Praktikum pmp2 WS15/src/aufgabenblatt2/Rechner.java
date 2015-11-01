@@ -21,13 +21,13 @@ public class Rechner {
 	map.put(Operation.ADD, (a, b) -> a + b);
 	map.put(Operation.DIV, (a, b) -> a / b);
   }
-  
-  public static void main(String[] args){
-	
-  Rechner resu = new Rechner();
-  resu.berechne(Operation.MUL, 2.0, 3.0);
-  
-  System.out.println("" + resu);
+
+  public static void main(String[] args) {
+
+	Rechner resu = new Rechner();
+	resu.berechne(Operation.MUL, 2.0, 3.0);
+
+	System.out.println("" + resu);
 
   }
 }
