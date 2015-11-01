@@ -1,7 +1,6 @@
 package aufgabenblatt2;
 
 import java.util.Arrays;
-import java.util.Collection;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -23,14 +22,22 @@ public static void main(String[]args){
   liste = Arrays.asList(string);
   
   streamString = liste.stream().filter(s -> s != null );
-  
   liste = streamString.collect(Collectors.toList());
   
   streamString = liste.stream().map(String::trim);
   liste = streamString.collect(Collectors.toList());
+  
+  
   streamString = liste.stream().map(String::toUpperCase);
   liste = streamString.collect(Collectors.toList());
-  streamString = liste.stream().map(String::max(8));// auf 8 CHARS kürzen!!!!!!!!!!!!
+  
+  
+  streamString = liste.stream().map(s -> s + "        ");
+  streamString = liste.stream().map(s -> s.substring(0, 8));
+  streamString = liste.stream().map(String::trim);
+  
+  liste = streamString.collect(Collectors.toList());
+  
   
   System.out.println(liste);
   
