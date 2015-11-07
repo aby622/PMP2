@@ -1,0 +1,56 @@
+/**
+ * PMP2, WS 2015/16
+ * Gruppe: Jannes Volkens (jannes.volkens@haw-hamburg.de),
+ * Leon Schlichting (leon.schlichting@haw-hamburg.de)
+ * Aufgabe: Aufgabenblatt 2, Aufgabe 3
+ */
+package aufgabenblatt2;
+
+public class Rennauto extends Thread {
+
+  private double geschwindigkeit;
+  String name;
+
+  public Rennauto(String name) {
+	this.geschwindigkeit = 0.0;
+	this.name = name;
+  }
+
+  @Override
+  public void run() {
+	double start = System.currentTimeMillis();
+	
+	int schritt = 1;	
+	while (geschwindigkeit < 10) {
+	  geschwindigkeit = (float)(geschwindigkeit + schritt);
+	  System.err.println("  " + name + ": " + geschwindigkeit + "/10.0");
+	  try {
+		Thread.sleep((long) (Math.random() * (1200 - 800) + 800));
+	  } catch (InterruptedException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	  }
+	if(geschwindigkeit < 10){
+	  try {
+		join();
+		System.err.println("aaaa");
+	  } catch (InterruptedException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	  }
+	}
+	}
+	
+	double ende = Math.round(10.0 * ((System.currentTimeMillis() - start) / 1000)) / 10.0;
+	System.err.println(name + ": " + ende + " Sekunden");
+  }
+
+  public static void main(String[] args) {
+	Rennauto golf = new Rennauto("golf");
+	Rennauto benz = new Rennauto("benz");
+	Rennauto audi = new Rennauto("audi");
+	golf.start();
+	benz.start();
+	audi.start();
+  }
+}

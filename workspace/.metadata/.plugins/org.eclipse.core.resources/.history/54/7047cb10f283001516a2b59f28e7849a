@@ -1,0 +1,30 @@
+package aufgabenblatt2;
+
+import static org.junit.Assert.*;
+
+import org.junit.Test;
+
+public class JUnitStreamStringArray {
+
+  @Test
+  public void entferneNullTest() {
+	String[] string = new String[] { "Eingabe ", "Äußeres ", null, "Strassen-Feger", " ein Haus" };
+	entferneNull(string);
+  }
+
+  @Test
+  public void entferneLeerzeichenTest() {
+	
+  }
+
+  @Test
+  public void toCapitalsTest() {
+	
+  }
+
+  @Test
+  public void kuerzeAufAchtCharsTest() {
+	
+  }
+  
+}

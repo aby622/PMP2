@@ -1,0 +1,40 @@
+package aufgabenblatt2;
+
+import static org.junit.Assert.*;
+
+import java.util.List;
+
+import org.junit.Test;
+
+public class JUnitStreamStringArray {
+
+  @Test
+  public void entferneNullTest() {
+	String[] stringx = { "Eingabe ", "Äußeres ", null, "Strassen-Feger", " ein Haus" };
+	StreamStringArray string = new StreamStringArray(stringx);
+	List<String> result = null;
+	result.add("Eingabe ");
+	result.add("Äußeres ");
+	result.add("Strassen-Feger");
+	result.add(" ein Haus");
+	string.entferneNull();
+	assertEquals(result, string);
+	
+  }
+
+  @Test
+  public void entferneLeerzeichenTest() {
+	
+  }
+
+  @Test
+  public void toCapitalsTest() {
+	
+  }
+
+  @Test
+  public void kuerzeAufAchtCharsTest() {
+	
+  }
+  
+}

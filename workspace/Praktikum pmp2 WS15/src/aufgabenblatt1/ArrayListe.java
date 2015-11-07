@@ -51,6 +51,7 @@ public class ArrayListe<T> {
    * @param rueckgabe
    * @return rueckgabe
    */
+  @SuppressWarnings("unchecked")
   public T get(int index) {
 	Object rueckgabe = 0;
 	// Element am Index wird bestimmt
@@ -141,6 +142,7 @@ public class ArrayListe<T> {
    * @param ergebnis
    * @return ergebnis
    */
+  @SuppressWarnings("unchecked")
   public T getKleinstesElement() {
 	Object ergebnis = elemente[0];
 	// Die Elemente werden miteinander verglichen und das kleinste wird
@@ -180,6 +182,7 @@ public class ArrayListe<T> {
    * @param ergbnis2 vom Typ T wird zum Vergleich benötigt
    * @return ergebnis gibt das kleinste Element aus
    */
+  @SuppressWarnings({ "unchecked", "hiding" })
   public <T extends Comparable<T>> T getKleinstesElementNEU() {
 	T ergebnis = (T) elemente[0];
 	// Die Elemente werden miteinander verglichen und das kleinste wird
