@@ -23,7 +23,7 @@ public class Rennabbruch extends Thread {
 	while (!isInterrupted()) {
 	  int zaehler = 1;
 	  int abbruch = (int) (10 * Math.random() + 1);
-
+	  zaehler++;
 	  try {
 		Thread.sleep(1000);
 	  } catch (InterruptedException e) {
@@ -38,7 +38,7 @@ public class Rennabbruch extends Thread {
 		System.out.println("Rennabbruch");
 	  }
 
-	  if (zaehler == 10) {
+	  if (zaehler < 10) {
 		interrupt();
 	  }
 	}

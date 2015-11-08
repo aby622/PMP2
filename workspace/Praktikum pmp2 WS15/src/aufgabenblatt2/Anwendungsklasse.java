@@ -22,11 +22,18 @@ public class Anwendungsklasse {
 
 	double[] ergebnis = { wagen1.getZeit(), wagen2.getZeit(), wagen3.getZeit() };
 	Arrays.sort(ergebnis);
+
 	System.out.print("Rennen zuende.\nErgebnis:\n");
 	for (double result : ergebnis) {
-	  System.out.println(result);
+	  if (result == wagen1.getZeit() && result != wagen2.getZeit() && result != wagen3.getZeit()) {
+		System.out.println(wagen1.getNames() + " " + result);
+	  }
+	  if (result == wagen2.getZeit() && result != wagen1.getZeit() && result != wagen3.getZeit()) {
+		System.out.println(wagen2.getNames() + " " + result);
+	  }
+	  if (result == wagen3.getZeit() && result != wagen1.getZeit() && result != wagen2.getZeit()) {
+		System.out.println(wagen3.getNames() + " " + result);
+	  }
 	}
-
   }
-
 }

@@ -20,6 +20,10 @@ public class Rennauto extends Thread {
 	return zeit;
   }
 
+  public String getNames(){
+	return name;
+  }
+
   @Override
   public void run() {
 	while (!isInterrupted()) {

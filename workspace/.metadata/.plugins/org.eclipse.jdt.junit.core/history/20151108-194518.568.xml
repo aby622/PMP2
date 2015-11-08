@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?><testrun name="JUnitStudent" project="Praktikum pmp2 WS15" tests="3" started="3" failures="0" errors="0" ignored="0">
-  <testsuite name="aufgabenblatt1.JUnitStudent" time="0.0">
-    <testcase name="testStudentNachNamen" classname="aufgabenblatt1.JUnitStudent" time="0.0"/>
-    <testcase name="testStudentPruefungsleistung" classname="aufgabenblatt1.JUnitStudent" time="0.0"/>
-    <testcase name="testStudentNachMatrikel" classname="aufgabenblatt1.JUnitStudent" time="0.0"/>
-  </testsuite>
-</testrun>
