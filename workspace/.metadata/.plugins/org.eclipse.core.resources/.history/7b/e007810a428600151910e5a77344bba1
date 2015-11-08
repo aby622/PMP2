@@ -1,0 +1,28 @@
+package test1;
+
+public class Abbruch extends Thread{
+  
+  private Test test;
+  
+  public Abbruch(Test test){
+	this.test = test;
+  }
+  
+  @Override
+  public void run(){
+	while(!isInterrupted()){
+	  for (int i = 1; !isInterrupted(); i++){
+		try{
+		  Thread.sleep(1000);
+		}catch (InterruptedException e){
+		  interrupt();
+		}
+		System.out.println(i);
+		if(i == 5){
+		  test.interrupt();
+		}
+	  }
+	}
+  }
+
+}

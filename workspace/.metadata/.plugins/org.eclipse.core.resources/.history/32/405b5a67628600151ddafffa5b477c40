@@ -1,0 +1,22 @@
+package test1;
+
+public class Test {
+  
+  public static void main(String [] args){
+	
+	double zahl = 9724.0;
+	System.out.println(zahl);
+	zahl = zahl / 1000;
+	zahl = Math.round(10.0 * zahl)/ 10.0;
+	System.out.println(zahl);
+	
+	double zahl2 = 9724.0;
+	int zahl3 = (int) zahl2;
+	System.out.println(zahl3);
+	double zahl4 = zahl3;
+	zahl4 = zahl4 / 1000;
+	zahl4 = Math.round(10.0 * zahl4)/ 10.0;
+	System.out.println(zahl4);
+  }
+
+}

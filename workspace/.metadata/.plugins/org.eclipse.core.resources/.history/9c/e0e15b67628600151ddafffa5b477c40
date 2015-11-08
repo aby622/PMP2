@@ -1,0 +1,40 @@
+package test1;
+
+import java.util.Collections;
+import java.util.LinkedList;
+import java.util.List;
+
+public class Main {
+
+  public static void main(String[] args) throws InterruptedException {
+	Ergebnis test1 = new Ergebnis("test1");
+	Ergebnis test2 = new Ergebnis("test2");
+	Ergebnis test3 = new Ergebnis("test3");
+
+	test1.start();
+	test2.start();
+	test3.start();
+
+	test1.join();
+	test2.join();
+	test3.join();
+
+	List<Ergebnis> liste1 = new LinkedList<Ergebnis>();
+
+	liste1.add(test1);
+	liste1.add(test1);
+	liste1.add(test1);
+	
+	for(Ergebnis e1 : liste1){
+	  for(Ergebnis e2 : liste1){
+		e1.compareTo(e2);
+	  }
+	}
+	Collections.sort(liste1);
+	
+	for(Ergebnis hallo : liste1){
+	  System.out.println(hallo);
+	}
+  }
+
+}

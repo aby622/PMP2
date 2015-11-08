@@ -1,0 +1,32 @@
+package aufgabenblatt2;
+
+import java.util.Arrays;
+
+public class Anwendungsklasse {
+
+  public static void main(String[] args) throws InterruptedException {
+
+	Rennauto wagen1 = new Rennauto("Wagen1");
+	Rennauto wagen2 = new Rennauto("Wagen2");
+	Rennauto wagen3 = new Rennauto("Wagen3");
+	Rennabbruch abbruch = new Rennabbruch(wagen1, wagen2, wagen3);
+
+	wagen1.start();
+	wagen2.start();
+	wagen3.start();
+	
+
+	wagen1.join();
+	wagen2.join();
+	wagen3.join();
+
+	double[] ergebnis = { wagen1.getZeit(), wagen2.getZeit(), wagen3.getZeit() };
+	Arrays.sort(ergebnis);
+	System.out.print("Rennen zuende.\nErgebnis:\n");
+	for (double result : ergebnis) {
+	  System.out.println(result);
+	}
+
+  }
+
+}

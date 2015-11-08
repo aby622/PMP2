@@ -1,0 +1,11 @@
+package test1;
+
+public class Test {
+  
+  public static void main(String [] args){
+	
+	int zahl = 13325261;
+	System.out.println((double)zahl);
+  }
+
+}

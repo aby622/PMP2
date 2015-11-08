@@ -1,0 +1,60 @@
+package test;
+
+public class Rennauto extends Thread {
+
+  private double rennstrecke;
+  private double rennzeit;
+  String name;
+
+  public Rennauto(String name) {
+	this.rennstrecke = 0.0;
+	this.name = name;
+  }
+
+  public double getRennzeit() {
+	return this.rennzeit;
+  }
+
+  @Override
+  public void run() {
+	while (!isInterrupted()) {
+	  while (rennstrecke < 10) {
+		long aktuelleGeschwindigkeit = (long) (Math.random() * (1200 - 800) + 800);
+		rennzeit += aktuelleGeschwindigkeit;
+		rennstrecke++;
+		System.err.println(" " + name + ": " + rennstrecke + "/10,0");
+
+		if (rennstrecke == 10) {
+		  interrupt();
+		}
+		try {
+		  Thread.sleep(aktuelleGeschwindigkeit);
+		} catch (InterruptedException e) {
+		  try {
+			Thread.sleep(2000);
+			interrupt();
+			rennzeit = Math.round(10.0 * rennzeit) / 10.0;
+			System.err.println(name + " beendet das Rennen mit " + rennzeit/1000 + " Sekunden");
+		  } catch (InterruptedException e1) {
+			e1.printStackTrace();
+
+		  }
+		}
+	  }
+	}
+  }
+
+  public static void main(String[] args) {
+	
+	Rennauto golf0 = new Rennauto("Golf0");
+	Rennauto golf1 = new Rennauto("Golf1");
+	Rennauto golf2 = new Rennauto("Golf2");
+	Rennauto golf3 = new Rennauto("Golf3");
+	golf0.start();
+	golf1.start();
+	golf2.start();
+	golf3.start();
+
+  }
+
+}

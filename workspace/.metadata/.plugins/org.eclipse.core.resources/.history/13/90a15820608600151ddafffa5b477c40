@@ -1,0 +1,46 @@
+package test;
+
+public class Rennauto extends Thread {
+
+  private double streckenlaenge = 0.0;
+  private double zeit;
+
+  public Rennauto(double streckenlaenge) {
+	this.streckenlaenge = streckenlaenge;
+  }
+
+  public double getZeit() {
+	return zeit;
+  }
+
+  @Override
+  public void run() {
+	while (!isInterrupted()) {
+	  double schritte = 1.0;
+	  long aktuelleGeschwindigkeit = (long) (Math.random() * 400 + 800);
+	  zeit += aktuelleGeschwindigkeit;
+	  streckenlaenge++;
+
+	  if (schritte == streckenlaenge) {
+		interrupt();
+		System.out.println("Hallo");
+	  }
+
+	  System.err.format(Thread.currentThread().getName() + ": %.1f/%1.f\n", schritte, streckenlaenge);
+
+	  try {
+		Thread.sleep(aktuelleGeschwindigkeit);
+	  } catch (InterruptedException e) {
+		try {
+		  Thread.sleep(2000);
+		  interrupt();
+		  zeit = zeit / 1000;
+		  zeit = Math.round(10.0 * zeit) / 10.0;
+		} catch (InterruptedException e1) {
+		  e1.printStackTrace();
+
+		}
+	  }
+	}
+  }
+}

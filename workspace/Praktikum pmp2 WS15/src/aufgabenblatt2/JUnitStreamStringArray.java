@@ -24,7 +24,7 @@ public class JUnitStreamStringArray<T> {
 	/*
 	 * Filtert Null Objekte aus
 	 */
-	streamString = liste.stream().filter(s -> s != null);
+	streamString = liste.stream().filter(s -> s == null);
 	liste = streamString.collect(Collectors.toList());
 
 	/*
@@ -90,7 +90,7 @@ public class JUnitStreamStringArray<T> {
 	/*
 	 * Filtert Null Objekte aus
 	 */
-	streamString = liste.stream().filter(s -> s != null);
+	streamString = liste.stream().filter(s -> s == null);
 	liste = streamString.collect(Collectors.toList());
 
 	/*

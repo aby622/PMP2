@@ -1,0 +1,40 @@
+package test;
+
+import java.util.Arrays;
+
+public class Rennauto extends Thread {
+
+  private double rennstrecke;
+  private double rennzeit;
+  String name;
+
+  public Rennauto(String name) {
+	this.rennstrecke = 0.0;
+	this.name = name;
+  }
+
+  public double getRennzeit() {
+	return this.rennzeit;
+  }
+
+  @Override
+  public void run() {
+	while (!isInterrupted()) {
+	  long aktuelleGeschwindigkeit = (long) (Math.random() * (1200 - 800) + 800);
+	  rennzeit += aktuelleGeschwindigkeit;
+	  rennstrecke++;
+
+	  if (rennstrecke == 10) {
+		interrupt();
+	  }
+
+	  System.err.println(" " + name + ": " + rennstrecke + "/10,0");
+
+	  try {
+		Thread.sleep(aktuelleGeschwindigkeit);
+	  } catch (InterruptedException e) {
+		interrupt();
+	  }
+	}
+  }
+}

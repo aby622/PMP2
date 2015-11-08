@@ -1,0 +1,51 @@
+package test1;
+
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
+
+public class Rennen {
+
+  public static void main(String[] args) {
+
+	Rennauto wagen1 = new Rennauto(1, 10);
+	Rennauto wagen2 = new Rennauto(1, 10);
+	Rennauto wagen3 = new Rennauto(1, 10);
+
+	wagen1.setName("Wagen1");
+	wagen2.setName("Wagen2");
+	wagen3.setName("Wagen3");
+
+	List<Rennauto> autoListe = (List) Arrays.asList(wagen1, wagen2, wagen3);
+	autoListe.add(wagen1);
+	// autoListe.add(wagen2);
+	// autoListe.add(wagen3);
+	Rennabbruch rennabbruch = new Rennabbruch(wagen1, wagen2, wagen3);
+	rennabbruch.start();
+	wagen1.start();
+	wagen2.start();
+	wagen3.start();
+
+	try {
+	  wagen1.join();
+	  wagen2.join();
+	  wagen3.join();
+	  rennabbruch.join();
+	} catch (InterruptedException e) {
+	  e.printStackTrace();
+	}
+	Comparator<Rennauto> comparatorLambda = (Rennauto auto1, Rennauto auto2) -> {
+	  return (int) (auto1.getZeit() - auto2.getZeit());
+	};
+	Collections.sort(autoListe, comparatorLambda);
+
+	System.out.println("Ergebnis");
+	// System.out.format("Wagen1: %.1f sek.\n", wagen1.getZeit());
+	// System.out.format("Wagen2: %.1f sek.\n", wagen2.getZeit());
+	// System.out.format("Wagen3: %.1f sek.\n", wagen3.getZeit());
+	System.out.println(autoListe.get(0));
+
+  }
+
+}

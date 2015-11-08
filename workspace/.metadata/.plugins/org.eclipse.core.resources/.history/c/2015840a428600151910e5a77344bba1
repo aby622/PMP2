@@ -1,0 +1,12 @@
+package test1;
+
+public class Test extends Thread{
+  
+  @Override
+  public void run(){
+	while(!isInterrupted()){
+	  System.out.println("Hallo");
+	}
+  }
+
+}

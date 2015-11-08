@@ -1,0 +1,12 @@
+package test;
+
+public class Test {
+  
+  public static void main(String [] args){
+	
+	double test = 1.2343463435;
+	test = Math.round(test);
+	System.out.println(test);
+  }
+
+}
