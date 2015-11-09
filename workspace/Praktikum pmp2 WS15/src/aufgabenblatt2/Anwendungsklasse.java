@@ -6,6 +6,10 @@
  */
 package aufgabenblatt2;
 
+/// Wie nennt man automatische Erkennung des Typs -> Typinferenz
+/// Testklassen aufräumen
+// Anzahl Runden an nur einer Stelle
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -35,7 +39,7 @@ public class Anwendungsklasse {
 	rennWagen.add(1, wagen2);
 	rennWagen.add(2, wagen3);
 
-	Rennabbruch abbruch = new Rennabbruch(wagen1, wagen2, wagen3);
+	Rennabbruch abbruch = new Rennabbruch(wagen1, wagen2, wagen3,10);
 
 	wagen1.start();
 	wagen2.start();

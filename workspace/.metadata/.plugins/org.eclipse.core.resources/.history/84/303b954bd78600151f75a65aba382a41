@@ -1,0 +1,16 @@
+package aufgabenblatt2;
+
+import java.util.LinkedList;
+import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
+public class StreamStringArray {
+  
+	private List<String> liste = new LinkedList<String>();
+	private Stream<String> streamString;
+	
+  public void verarbeiteArray() {
+	
+
+}

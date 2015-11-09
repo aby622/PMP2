@@ -1,0 +1,91 @@
+package aufgabenblatt2;
+
+import static org.junit.Assert.*;
+
+import java.util.LinkedList;
+import java.util.List;
+
+import org.junit.Test;
+
+public class JUnitStreamStringArray {
+
+  @Test
+  public void testOriginalString() {
+
+	String[] stringx = { "Eingabe ", "Äußeres ", null, "Strassen-Feger", " ein Haus" };
+	List<String> resuErg = new LinkedList<String>();
+	StringArray test = new StringArray();
+
+	resuErg = test.verarbeiteArray(stringx);
+
+	/*
+	 * Ergebnis Liste
+	 */
+	List<String> result = new LinkedList<String>();
+	result.add("EINGABE");
+	result.add("AEUSSERE");
+	result.add("STRASSEN");
+	result.add("EIN HAUS");
+
+	assertEquals(result, resuErg);
+  }
+
+  @Test
+  public void testStringOnlyNull() {
+
+	String[] stringx = { null, null, null, null, null };
+	List<String> resuErg = new LinkedList<String>();
+	StringArray test = new StringArray();
+
+	resuErg = test.verarbeiteArray(stringx);
+
+	/*
+	 * Ergebnis Liste
+	 */
+	List<String> result = new LinkedList<String>();
+
+	assertEquals(result, resuErg);
+  }
+
+  @Test
+  public void testNeu2() {
+
+	String[] stringx = { "Ein ", "Hochseeschiffkoch aus Hamburg", null, null, "              A                      " };
+	List<String> resuErg = new LinkedList<String>();
+	StringArray test = new StringArray();
+
+	resuErg = test.verarbeiteArray(stringx);
+
+	/*
+	 * Ergebnis Liste
+	 */
+	List<String> result = new LinkedList<String>();
+	result.add("EINGABE");
+	result.add("AEUSSERE");
+	result.add("STRASSEN");
+	result.add("EIN HAUS");
+
+	assertEquals(result, resuErg);
+  }
+
+  @Test
+  public void testNeu3() {
+
+	String[] stringx = { "      gabe ", "  ÄÜÖßßÄÖÜ     Ä   ", null, "1234  ABC äää  ", " ...         ...    ÄÖ A" };
+	List<String> resuErg = new LinkedList<String>();
+	StringArray test = new StringArray();
+
+	resuErg = test.verarbeiteArray(stringx);
+
+	/*
+	 * Ergebnis Liste
+	 */
+	List<String> result = new LinkedList<String>();
+	result.add("EINGABE");
+	result.add("AEUSSERE");
+	result.add("STRASSEN");
+	result.add("EIN HAUS");
+
+	assertEquals(result, resuErg);
+  }
+}

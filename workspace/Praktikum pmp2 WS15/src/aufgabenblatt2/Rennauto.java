@@ -18,9 +18,9 @@ public class Rennauto extends Thread implements Comparable<Rennauto> {
    */
   private double streckenlaenge;
   /**
-   * private double streckenlaenge1
+   * private double schritte
    */
-  private double streckenlaenge1 = 0.0;
+  private double schritte = 0.0;
   /**
    * private double zeit
    */
@@ -67,11 +67,11 @@ public class Rennauto extends Thread implements Comparable<Rennauto> {
 	while (!isInterrupted()) {
 	  long geschwindigkeit = (long) (Math.random() * 400 + 800);
 	  zeit += geschwindigkeit;
-	  streckenlaenge1++;
+	  schritte++;
 
-	  System.err.println(name + ": " + streckenlaenge1 + "/10.0");
+	  System.err.println(name + ": " + schritte + "/" + streckenlaenge);
 
-	  if (streckenlaenge1 == streckenlaenge) {
+	  if (schritte == streckenlaenge) {
 		interrupt();
 	  }
 
@@ -96,13 +96,13 @@ public class Rennauto extends Thread implements Comparable<Rennauto> {
   @Override
   public int compareTo(Rennauto auto) {
 	int ergebnis = 0;
-	if(getZeit() < auto.getZeit()){
+	if (getZeit() < auto.getZeit()) {
 	  ergebnis = -1;
 	}
-	if(getZeit() == auto.getZeit()){
+	if (getZeit() == auto.getZeit()) {
 	  ergebnis = 0;
 	}
-	if(getZeit() > auto.getZeit()){
+	if (getZeit() > auto.getZeit()) {
 	  ergebnis = 1;
 	}
 	return ergebnis;
