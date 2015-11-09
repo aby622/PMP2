@@ -6,62 +6,25 @@
  */
 package aufgabenblatt2;
 
-/**
- * Klasse Rennauto
- * 
- * @author Leon, Jannes
- *
- */
 public class Rennauto extends Thread implements Comparable<Rennauto> {
-  /**
-   * private double streckenlaenge
-   */
   private double streckenlaenge;
-  /**
-   * private double streckenlaenge1
-   */
   private double streckenlaenge1 = 0.0;
-  /**
-   * private double zeit
-   */
   private double zeit;
-  /**
-   * private String name
-   */
   private String name;
 
-  /**
-   * Konstruktor
-   * 
-   * @param name
-   * @param streckenlaenge
-   */
   public Rennauto(String name, double streckenlaenge) {
 	this.name = name;
 	this.streckenlaenge = streckenlaenge;
   }
 
-  /**
-   * Getter
-   * 
-   * @return
-   */
   public double getZeit() {
 	return zeit;
   }
 
-  /**
-   * Getter
-   * 
-   * @return
-   */
   public String getNames() {
 	return name;
   }
 
-  /**
-   * Override run Methode
-   */
   @Override
   public void run() {
 	while (!isInterrupted()) {
@@ -90,11 +53,17 @@ public class Rennauto extends Thread implements Comparable<Rennauto> {
 	}
   }
 
-  /**
-   * Override CompareTo Methode und Autos nach der Zeit zu sortieren.
-   */
   @Override
   public int compareTo(Rennauto auto) {
-	return (int) (getZeit() - auto.getZeit());
+	if (auto.getName() == null && this.getName() == null) {
+	  return 0;
+	}
+	if (this.getName() == null) {
+	  return 1;
+	}
+	if (auto.getName() == null) {
+	  return -1;
+	}
+	return this.getName().compareTo(auto.getName());
   }
 }

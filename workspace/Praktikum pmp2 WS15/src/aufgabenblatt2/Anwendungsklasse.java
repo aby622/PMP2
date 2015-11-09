@@ -1,14 +1,40 @@
+/**
+ * PMP2, WS 2015/16
+ * Gruppe: Jannes Volkens (jannes.volkens@haw-hamburg.de),
+ * Leon Schlichting (leon.schlichting@haw-hamburg.de)
+ * Aufgabe: Aufgabenblatt 2, Aufgabe 3
+ */
 package aufgabenblatt2;
 
-import java.util.Arrays;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
+/**
+ * Anwendungsklasse
+ * 
+ * @author Leon, Jannes
+ *
+ */
 public class Anwendungsklasse {
-
+  /**
+   * main Methode
+   * 
+   * @param args
+   * @throws InterruptedException
+   */
   public static void main(String[] args) throws InterruptedException {
 
-	Rennauto wagen1 = new Rennauto("Wagen1");
-	Rennauto wagen2 = new Rennauto("Wagen2");
-	Rennauto wagen3 = new Rennauto("Wagen3");
+	List<Rennauto> rennWagen = new ArrayList<Rennauto>();
+
+	Rennauto wagen1 = new Rennauto("Wagen1", 10);
+	Rennauto wagen2 = new Rennauto("Wagen2", 10);
+	Rennauto wagen3 = new Rennauto("Wagen3", 10);
+
+	rennWagen.add(0, wagen1);
+	rennWagen.add(1, wagen2);
+	rennWagen.add(2, wagen3);
+
 	Rennabbruch abbruch = new Rennabbruch(wagen1, wagen2, wagen3);
 
 	wagen1.start();
@@ -20,20 +46,18 @@ public class Anwendungsklasse {
 	wagen2.join();
 	wagen3.join();
 
-	double[] ergebnis = { wagen1.getZeit(), wagen2.getZeit(), wagen3.getZeit() };
-	Arrays.sort(ergebnis);
-
-	System.out.print("Rennen zuende.\nErgebnis:\n");
-	for (double result : ergebnis) {
-	  if (result == wagen1.getZeit() && result != wagen2.getZeit() && result != wagen3.getZeit()) {
-		System.out.println(wagen1.getNames() + " " + result);
-	  }
-	  if (result == wagen2.getZeit() && result != wagen1.getZeit() && result != wagen3.getZeit()) {
-		System.out.println(wagen2.getNames() + " " + result);
-	  }
-	  if (result == wagen3.getZeit() && result != wagen1.getZeit() && result != wagen2.getZeit()) {
-		System.out.println(wagen3.getNames() + " " + result);
+	for (Rennauto rennautox : rennWagen) {
+	  for (Rennauto rennautoy : rennWagen) {
+		rennautox.compareTo(rennautoy);
 	  }
 	}
+	rennWagen.sort(null);
+	Collections.sort(rennWagen);
+
+	System.out.println("Rennen zuende.\nErgebnis:");
+	for (Rennauto auto : rennWagen) {
+	  System.out.println(auto.getNames() + ": " + auto.getZeit());
+	}
+
   }
 }
