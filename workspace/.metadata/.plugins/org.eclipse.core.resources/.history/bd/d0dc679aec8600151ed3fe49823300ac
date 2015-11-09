@@ -56,9 +56,7 @@ public class Rechner implements IDoubleDoubleZuDouble {
 	map.put(Operation.ADD, (a, b) -> a + b);
 	map.put(Operation.DIV, (a, b) -> a / b);
   }
-/**
- * Override Methode aus Interface IDouleDoubleZuDouble
- */
+
   @Override
   public double werteAus(double a, double b) {
 	double erg1 = berechne(Operation.MUL, a, b);
