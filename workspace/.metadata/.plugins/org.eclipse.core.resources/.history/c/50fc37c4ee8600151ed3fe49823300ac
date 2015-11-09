@@ -9,6 +9,7 @@ public class JUnitRechner {
 
   @Test
   public void test1() {
+	Rechner rechner = new Rechner();
 	IDoubleDoubleZuDouble demo;
 	demo = (double op1, double op2)->{
 	  double erg1 = op1*op2;
@@ -18,7 +19,7 @@ public class JUnitRechner {
 
 	double expected = 5.333;
 
-	assertEquals("Ergebnis", expected, demo.werteAus(2, 3), 0.001);
+	assertEquals("Ergebnis", expected, erg, 0.001);
   }
 
   @Test

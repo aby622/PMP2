@@ -9,6 +9,7 @@ public class JUnitRechner {
 
   @Test
   public void test1() {
+	Rechner rechner = new Rechner();
 	IDoubleDoubleZuDouble demo;
 	demo = (double op1, double op2)->{
 	  double erg1 = op1*op2;
