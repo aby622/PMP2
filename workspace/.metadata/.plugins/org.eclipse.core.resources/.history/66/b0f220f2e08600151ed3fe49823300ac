@@ -7,6 +7,8 @@
 package aufgabenblatt2;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 /**
@@ -22,7 +24,6 @@ public class Anwendungsklasse {
    * @param args
    * @throws InterruptedException
    */
-
   public static void main(String[] args) throws InterruptedException {
 
 	List<Rennauto> rennWagen = new ArrayList<Rennauto>();
@@ -45,8 +46,18 @@ public class Anwendungsklasse {
 	wagen1.join();
 	wagen2.join();
 	wagen3.join();
-
+/**
+	for (Rennauto rennautox : rennWagen) {
+	  for (Rennauto rennautoy : rennWagen) {
+		rennautox.compareTo(rennautoy);
+	  }
+	}*/
+	Comparator<Rennauto> comparatorLambda = (Rennauto auto1,Rennauto auto2)->{return (int) (auto1.getZeit()-auto2.getZeit());};
+	Collections.sort(rennWagen,comparatorLambda);
+	/**
 	rennWagen.sort(null);
+	Collections.sort(rennWagen);
+*/
 	System.out.println("Rennen zuende.\nErgebnis:");
 	for (Rennauto auto : rennWagen) {
 	  System.out.println(auto.getNames() + ": " + auto.getZeit());

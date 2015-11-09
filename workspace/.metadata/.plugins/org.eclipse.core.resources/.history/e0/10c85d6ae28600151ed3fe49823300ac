@@ -95,16 +95,6 @@ public class Rennauto extends Thread implements Comparable<Rennauto> {
    */
   @Override
   public int compareTo(Rennauto auto) {
-	int ergebnis = 0;
-	if(getZeit() < auto.getZeit()){
-	  ergebnis = -1;
-	}
-	if(getZeit() == auto.getZeit()){
-	  ergebnis = 0;
-	}
-	if(getZeit() > auto.getZeit()){
-	  ergebnis = 1;
-	}
-	return ergebnis;
+	return (int) (getZeit() - auto.getZeit());
   }
 }
