@@ -14,12 +14,12 @@ import java.util.function.BinaryOperator;
  * 
  * @author Leon, Jannes
  */
-public class Rechner{
+public class Rechner {
   /**
    * HashMap die später gefüllt wird mit einer Operation und einem
    * Lambda-Ausdruck, der die Operation bestimmt.
    */
-  HashMap<Operation, BinaryOperator<Double>> map = new HashMap<Operation, BinaryOperator<Double>>();
+  private HashMap<Operation, BinaryOperator<Double>> map = new HashMap<Operation, BinaryOperator<Double>>();
 
   /**
    * Enum Operation definiert die Grundrechenarten
@@ -56,4 +56,5 @@ public class Rechner{
 	map.put(Operation.ADD, (a, b) -> a + b);
 	map.put(Operation.DIV, (a, b) -> a / b);
   }
+ 
 }

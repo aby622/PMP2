@@ -1,0 +1,59 @@
+/**
+ * PMP2, WS 2015/16
+ * Gruppe: Jannes Volkens (jannes.volkens@haw-hamburg.de),
+ * Leon Schlichting (leon.schlichting@haw-hamburg.de)
+ * Aufgabe: Aufgabenblatt 2, Aufgabe 3
+ */
+package aufgabenblatt2;
+
+/// Wie nennt man automatische Erkennung des Typs
+/// Testklassen aufräumen
+
+import java.util.ArrayList;
+import java.util.List;
+
+/**
+ * Anwendungsklasse
+ * 
+ * @author Leon, Jannes
+ *
+ */
+public class Anwendungsklasse {
+  /**
+   * main Methode
+   * 
+   * @param args
+   * @throws InterruptedException
+   */
+
+  public static void main(String[] args) throws InterruptedException {
+
+	List<Rennauto> rennWagen = new ArrayList<Rennauto>();
+
+	Rennauto wagen1 = new Rennauto("Wagen1", 10);
+	Rennauto wagen2 = new Rennauto("Wagen2", 10);
+	Rennauto wagen3 = new Rennauto("Wagen3", 10);
+	
+
+	rennWagen.add(0, new Rennauto("neu", 10));
+	rennWagen.add(1, wagen2);
+	rennWagen.add(2, wagen3);
+
+	Rennabbruch abbruch = new Rennabbruch(wagen1, wagen2, wagen3);
+
+	wagen1.start();
+	wagen2.start();
+	wagen3.start();
+	abbruch.start();
+
+	wagen1.join();
+	wagen2.join();
+	wagen3.join();
+
+	rennWagen.sort(null);
+	System.out.println("Rennen zuende.\nErgebnis:");
+	for (Rennauto auto : rennWagen) {
+	  System.out.println(auto.getNames() + ": " + auto.getZeit());
+	}
+  }
+}

@@ -4,11 +4,15 @@ import static org.junit.Assert.*;
 import org.junit.Test;
 
 import aufgabenblatt2.Rechner.Operation;
-
+/**
+ * Test Klasse für Rechner
+ * @author abx805
+ *
+ */
 public class JUnitRechner {
 
   @Test
-  public void test1() {
+  public void testeFunktionalesInterface() {
 	IDoubleDoubleZuDouble demo;
 	demo = (double op1, double op2) -> {
 	  double erg1 = op1 * op2;
@@ -22,7 +26,7 @@ public class JUnitRechner {
   }
 
   @Test
-  public void test2() {
+  public void testAddition() {
 	Rechner rechner = new Rechner();
 	double erg = rechner.berechne(Operation.ADD, 1.2, 1.4);
 
@@ -32,7 +36,7 @@ public class JUnitRechner {
   }
 
   @Test
-  public void test3() {
+  public void testAddition2() {
 	Rechner rechner = new Rechner();
 	double erg = rechner.berechne(Operation.ADD, 1.2, -1.4);
 
@@ -42,7 +46,7 @@ public class JUnitRechner {
   }
 
   @Test
-  public void test4() {
+  public void testDivision() {
 	Rechner rechner = new Rechner();
 	double erg = rechner.berechne(Operation.DIV, 10.0, 2.0);
 
@@ -52,7 +56,7 @@ public class JUnitRechner {
   }
 
   @Test
-  public void test5() {
+  public void testDivision2() {
 	Rechner rechner = new Rechner();
 	double erg = rechner.berechne(Operation.DIV, 2.0, 10.0);
 
@@ -62,7 +66,7 @@ public class JUnitRechner {
   }
 
   @Test
-  public void test6() {
+  public void testMultiplikation() {
 	Rechner rechner = new Rechner();
 	double erg = rechner.berechne(Operation.MUL, 2.0, 10.0);
 
@@ -70,9 +74,19 @@ public class JUnitRechner {
 
 	assertEquals("Ergebnis", expected, erg, 0.001);
   }
+  
+  @Test
+  public void testMultiplikation2() {
+	Rechner rechner = new Rechner();
+	double erg = rechner.berechne(Operation.MUL, 7.3, -2.0);
+
+	double expected = -14.6;
+
+	assertEquals("Ergebnis", expected, erg, 0.001);
+  }
 
   @Test
-  public void test7() {
+  public void testSubtraktion() {
 	Rechner rechner = new Rechner();
 	double erg = rechner.berechne(Operation.SUB, 2.0, 10.0);
 
@@ -82,7 +96,7 @@ public class JUnitRechner {
   }
 
   @Test
-  public void test8() {
+  public void testSubtraktion2() {
 	Rechner rechner = new Rechner();
 	double erg = rechner.berechne(Operation.SUB, 5.0, 2.0);
 
@@ -90,5 +104,10 @@ public class JUnitRechner {
 
 	assertEquals("Ergebnis", expected, erg, 0.001);
   }
+  
+//  @Test
+//  public void testNix(){
+//	new Rechner().berechne(Operation.NIX, 23, 24);
+//  }
 
 }
