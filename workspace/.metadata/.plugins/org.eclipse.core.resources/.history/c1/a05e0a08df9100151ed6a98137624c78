@@ -1,0 +1,15 @@
+package aufgabenblatt3;
+
+public class Gleis {
+
+  public int gleisnummer = -1;
+
+
+  public Gleis() {
+	gleisnummer++;
+  }
+
+  public int getGleisnummer() {
+	return gleisnummer;
+  }
+}

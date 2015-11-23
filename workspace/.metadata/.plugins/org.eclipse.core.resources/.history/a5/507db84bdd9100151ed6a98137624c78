@@ -1,0 +1,20 @@
+package aufgabenblatt3;
+
+public class Gleis {
+
+  public int gleisnummer = 0;
+  public boolean verfuegbar;
+
+  public Gleis() {
+	gleisnummer++;
+  }
+
+  public int getGleisnummer() {
+	return gleisnummer;
+  }
+
+  public boolean getVerfuegbar() {
+	return verfuegbar;
+  }
+
+}
