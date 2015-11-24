@@ -1,0 +1,46 @@
+package aufgabenblatt3;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.function.BinaryOperator;
+
+public class Rangierbahnhof extends Thread {
+
+  private boolean gleis0 = true;
+  private boolean gleis1 = true;
+  private boolean gleis2 = true;
+
+  private Zug[] zuege = { new Zug(), new Zug() };
+
+  public synchronized void ausfahren(Zug[] zug, int gleis) {
+	while (!isInterrupted()) {
+	  try {
+		this.wait();
+	  } catch (InterruptedException e) {
+		Thread.currentThread().interrupt();
+	  }
+	}
+	if (gleis == 0) {
+	  gleis0 = true;
+	}
+	if (gleis == 1) {
+	  gleis1 = true;
+	}
+	if (gleis == 2) {
+	  gleis2 = true;
+	}
+  }
+
+  public synchronized int einfahren(Zug[] zug) {
+	while (!isInterrupted()) {
+	  try {
+		this.wait();
+	  } catch (InterruptedException e) {
+		Thread.currentThread().interrupt();
+	  }
+	}
+	return gleise.get(operator).apply(einfahren, nichtEinfahren);
+  }
+}

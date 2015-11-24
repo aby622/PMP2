@@ -1,0 +1,52 @@
+package aufgabenblatt3;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.function.BinaryOperator;
+
+public class Rangierbahnhof extends Thread{
+
+  
+  private byte gleis0 = 0;
+  private byte gleis1 = 0;
+  private byte gleis2 = 0;
+  
+  private byte[] gleisee = {gleis0,gleis1,gleis2};
+  
+  private Zug[] zuege = new Zug[1];
+
+  private HashMap<Operation, BinaryOperator<Byte>> gleise = new HashMap<Operation,BinaryOperator<Byte>>();
+  
+  public enum Operation {
+	EINFAHREN, AUSFAHREN
+  }
+
+  public Rangierbahnhof() {
+	gleise.put(Operation.EINFAHREN, (a, b) -> gleisee[a]=1);
+	gleise.put(Operation.AUSFAHREN,  (a, b) -> gleisee[b]=0);
+  }
+
+  public synchronized int ausfahren(Operation operator, Byte nichtAusfahren, Byte ausfahren) {
+	while (!isInterrupted()) {
+	  try {
+		this.wait();
+	  } catch (InterruptedException e) {
+		Thread.currentThread().interrupt();
+	  }
+	}
+	return gleise.get(operator).apply(nichtAusfahren, ausfahren);
+  }
+
+  public synchronized int einfahren(Operation operator, Byte einfahren, Byte nichtEinfahren) {
+	while (!isInterrupted()) {
+	  try {
+		this.wait();
+	  } catch (InterruptedException e) {
+		Thread.currentThread().interrupt();
+	  }
+	}
+	return gleise.get(operator).apply(einfahren, nichtEinfahren);
+  }
+}

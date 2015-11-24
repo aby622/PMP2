@@ -1,0 +1,46 @@
+package aufgabenblatt3;
+
+import java.util.HashMap;
+import java.util.function.BinaryOperator;
+
+public class Rangierbahnhof {
+
+  public int anzahlGleise = 3;
+
+  private Zug[] zuege = new Zug[1];
+
+  private HashMap<Operation, BinaryOperator<Integer>> gleise = new HashMap<Operation, BinaryOperator<Integer>>();
+
+  public enum Operation {
+	EINFAHREN0, EINFAHREN1, EINFAHREN2, AUSFAHREN0, AUSFAHREN1, AUSFAHREN2
+  }
+
+  public Rangierbahnhof() {
+	gleise.put(Operation.EINFAHREN0, (a, b) -> Zug[a]);
+	gleise.put(Operation.AUSFAHREN0, (a, b) -> zuege);
+  }
+
+  public synchronized int ausfahren(Operation operator, int ziel, int quelle) {
+	while (anzahlGleise != zuege.length) {
+	  try {
+		this.wait();
+	  } catch (InterruptedException e) {
+		Thread.currentThread().interrupt();
+	  }
+
+	}
+	return gleise.get(operator).apply(ziel, quelle);
+  }
+
+  public synchronized int einfahren(Operation operator, int ziel, int quelle) {
+	while (anzahlGleise != zuege.length) {
+	  try {
+		this.wait();
+	  } catch (InterruptedException e) {
+		Thread.currentThread().interrupt();
+	  }
+
+	}
+	return gleise.get(operator).apply(ziel, quelle);
+  }
+}

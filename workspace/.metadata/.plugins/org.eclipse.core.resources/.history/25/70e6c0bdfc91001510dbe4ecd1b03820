@@ -1,0 +1,29 @@
+package aufgabenblatt3;
+
+public class Rangierbahnhof {
+
+  public int anzahlGleise = 3;
+
+  private Zug[] zuege = {};
+
+  public synchronized void ausfahren() {
+
+  }
+
+  public synchronized void einfahren(int gleisnummer) {
+	while (anzahlGleise != zuege.length) {
+	  try {
+		this.wait();
+	  } catch (InterruptedException e) {
+		Thread.currentThread().interrupt();
+	  }
+		Zug[] neu = new Zug[zuege.length + 1];
+		// Elemente werden in die neue Liste kopiert.
+		for (int i = 0; i < zuege.length; i++) {
+		  neu[i] = zuege[i];
+		}
+		anzahlGleise = neu.length;
+		zuege = neu;
+	}
+  }
+}

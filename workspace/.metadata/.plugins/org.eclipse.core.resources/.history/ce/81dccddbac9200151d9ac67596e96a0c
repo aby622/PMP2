@@ -1,0 +1,20 @@
+package aufgabenblatt3;
+
+public class Lokfuehrer<Rangerbahnof> extends Thread {
+
+  public Lokfuehrer(Rangierbahnhof bf, int gleis) {
+	bf.ausfahren(gleis);
+	bf.einfahren(gleis);
+  }
+
+  @Override
+  public void run() {
+	while (!isInterrupted()) {
+	  try {
+		wait();
+	  } catch (InterruptedException e) {
+	  }
+	}
+  }
+
+}
