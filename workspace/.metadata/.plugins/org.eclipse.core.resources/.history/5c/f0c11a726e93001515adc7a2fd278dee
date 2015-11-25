@@ -1,0 +1,13 @@
+package aufgabenblatt3;
+
+public class Lokfuehrer extends Rangierbahnhof implements IbewegeZug {
+
+  @Override
+  public void parken(int gleis) {
+	
+  }
+
+
+
+
+}

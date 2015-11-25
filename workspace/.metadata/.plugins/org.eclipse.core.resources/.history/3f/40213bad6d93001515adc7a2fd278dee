@@ -1,0 +1,8 @@
+package aufgabenblatt3;
+
+public class Lokfuehrer extends Rangierbahnhof implements ILokfuehrerVerhalten {
+
+
+
+
+}

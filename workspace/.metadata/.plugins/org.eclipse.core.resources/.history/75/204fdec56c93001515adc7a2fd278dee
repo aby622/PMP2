@@ -1,0 +1,22 @@
+package aufgabenblatt3;
+
+public class Lokfuehrer extends Thread {
+
+  @Override
+  public void run() {
+	while (!isInterrupted()) {
+	  try {
+		wait();
+	  } catch (InterruptedException e) {
+	  }
+	}
+	synchronized(getClass()) {
+
+	  System.err.println("ausgefahren");
+	}
+	synchronized(getClass()) {
+
+	  System.err.println("eingefahren");
+	}
+  }
+}

@@ -1,0 +1,12 @@
+package aufgabenblatt3;
+
+public abstract class Lokfuehrer extends Rangierbahnhof implements IbewegeZug {
+
+  protected IbewegeZug aktion;
+  
+  public Lokfuehrer(IbewegeZug aktion){
+	this.aktion = aktion;
+  }
+  
+  
+}

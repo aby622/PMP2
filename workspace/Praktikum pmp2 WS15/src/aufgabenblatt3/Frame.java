@@ -27,7 +27,6 @@ public class Frame extends Application {
 	gridpane.setPadding(new Insets(5));
 	gridpane.setHgap(5);
 	gridpane.setVgap(5);
-
 	StackPane root = new StackPane();
 	root.getChildren().add(gridpane);
 	

@@ -1,0 +1,11 @@
+package aufgabenblatt3;
+
+public class Ausfahren implements ILokfuehrerVerhalten {
+
+  @Override
+  public void parken() {
+	
+	
+  }
+
+}

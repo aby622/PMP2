@@ -1,0 +1,5 @@
+package aufgabenblatt3;
+
+public interface ILokfuehrerVerhalten{
+  public void parken(int gleis);
+}

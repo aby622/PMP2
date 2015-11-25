@@ -1,0 +1,28 @@
+package aufgabenblatt3;
+
+public class Lokfuehrer extends Thread implements IbewegeZug {
+
+  protected IbewegeZug aktion;
+
+  public Lokfuehrer(IbewegeZug aktion) {
+	this.aktion = aktion;
+  }
+
+  public void parken(int gleise) {
+	aktion.parken(gleise);
+  }
+
+  @Override
+  public void run() {
+	Einfahren einfahren = new Einfahren();
+	Ausfahren ausfahren = new Ausfahren();
+	
+	while (new Lokfuehrer(aktion) == new Lokfuehrer(einfahren)) {
+	  new Lokfuehrer(einfahren).start();
+	}
+	while (new Lokfuehrer(aktion) == new Lokfuehrer(ausfahren)) {
+	  new Lokfuehrer(ausfahren).start();
+	}
+
+  }
+}
