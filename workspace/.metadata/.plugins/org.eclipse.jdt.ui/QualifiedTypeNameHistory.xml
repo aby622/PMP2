@@ -37,4 +37,6 @@
 <fullyQualifiedTypeName name="javafx.scene.Scene"/>
 <fullyQualifiedTypeName name="javafx.scene.layout.Pane"/>
 <fullyQualifiedTypeName name="aufgabenblatt3.Rangierbahnhof"/>
+<fullyQualifiedTypeName name="javafx.scene.shape.LineTo"/>
+<fullyQualifiedTypeName name="javafx.scene.paint.Color"/>
 </qualifiedTypeNameHistroy>
