@@ -30,7 +30,14 @@ public class Frame extends Application {
 	
 	
 	StackPane root = new StackPane();
-	addBahnhof(root);
+	Pane bahnhof = new Pane();
+	Path path = new Path();
+	MoveTo moveTo = new MoveTo();
+	moveTo.setX(0);
+	moveTo.setY(100);
+	bahnhof.getChildren().add(path);
+	root.getChildren();
+	
 	
 	primaryStage.setScene(new Scene(root, 300, 100));
 	primaryStage.show();
