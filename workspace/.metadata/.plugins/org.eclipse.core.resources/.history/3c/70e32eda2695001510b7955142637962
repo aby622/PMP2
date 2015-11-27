@@ -27,15 +27,10 @@ public class Frame extends Application {
 	GridPane gridpane = new GridPane();
 	root.getChildren().add(gridpane);
 	gridpane.setPadding(new Insets(5));
-	gridpane.setHgap(5);
+	gridpane.setHgap(5);;
 	gridpane.setVgap(5);
-	GridPane gridpane2 = new GridPane();
-	root.getChildren().add(gridpane2);
-	gridpane2.setPadding(new Insets(15));
-	gridpane2.setHgap(15);
-	gridpane2.setVgap(15);
 	addBahnhof(gridpane);
-	addZug(gridpane2);
+	addZug(gridpane);
 	primaryStage.setScene(new Scene(root, 200, 300));
 	primaryStage.show();
   }
@@ -79,11 +74,15 @@ public class Frame extends Application {
 	LineTo lineTo4 = new LineTo();
 	lineTo4.setX(140);
 	lineTo4.setY(10);
+	MoveTo moveTo2 = new MoveTo();
+	moveTo2.setX(0);
+	moveTo2.setY(0);
 	path.getElements().add(moveTo);
 	path.getElements().add(lineTo1);	
 	path.getElements().add(lineTo2);
 	path.getElements().add(lineTo3);
 	path.getElements().add(lineTo4);
+	path.getElements().add(moveTo2);
 	path.setStrokeWidth(3);
 	path.setStroke(Color.BLACK);
 	zug.getChildren().add(path);

@@ -30,7 +30,5 @@ public class Lokfuehrer extends Thread implements IbewegeZug {
 	Rangierbahnhof bahnhof = new Rangierbahnhof();
 	Lokfuehrer erster = new Lokfuehrer(new Einfahren(), bahnhof);
 	erster.parken(1);
-	Lokfuehrer zweiter = new Lokfuehrer(new Ausfahren(), bahnhof);
-	zweiter.parken(1);
   }
 }

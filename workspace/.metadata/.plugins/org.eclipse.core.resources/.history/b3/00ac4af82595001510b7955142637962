@@ -1,7 +1,6 @@
 package aufgabenblatt3;
 
 import javafx.application.Application;
-import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
@@ -17,26 +16,18 @@ public class Frame extends Application {
   public static void main(String[] args) {
 	launch(args);
   }
-
+  
   @Override
   public void start(Stage primaryStage){
 	primaryStage.setTitle("Bahnhof");
 	
 	
 	StackPane root = new StackPane();
-	GridPane gridpane = new GridPane();
-	root.getChildren().add(gridpane);
-	gridpane.setPadding(new Insets(5));
-	gridpane.setHgap(5);
-	gridpane.setVgap(5);
-	GridPane gridpane2 = new GridPane();
-	root.getChildren().add(gridpane2);
-	gridpane2.setPadding(new Insets(15));
-	gridpane2.setHgap(15);
-	gridpane2.setVgap(15);
-	addBahnhof(gridpane);
-	addZug(gridpane2);
-	primaryStage.setScene(new Scene(root, 200, 300));
+	GridPane raster = new GridPane();
+	root.getChildren().add(raster);
+	addBahnhof(raster);
+	addZug(raster);
+	primaryStage.setScene(new Scene(root, 500, 500));
 	primaryStage.show();
   }
   

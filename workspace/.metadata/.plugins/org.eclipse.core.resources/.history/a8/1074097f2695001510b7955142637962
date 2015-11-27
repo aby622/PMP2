@@ -27,15 +27,10 @@ public class Frame extends Application {
 	GridPane gridpane = new GridPane();
 	root.getChildren().add(gridpane);
 	gridpane.setPadding(new Insets(5));
-	gridpane.setHgap(5);
+	gridpane.setHgap(5);;
 	gridpane.setVgap(5);
-	GridPane gridpane2 = new GridPane();
-	root.getChildren().add(gridpane2);
-	gridpane2.setPadding(new Insets(15));
-	gridpane2.setHgap(15);
-	gridpane2.setVgap(15);
 	addBahnhof(gridpane);
-	addZug(gridpane2);
+	addZug(gridpane);
 	primaryStage.setScene(new Scene(root, 200, 300));
 	primaryStage.show();
   }

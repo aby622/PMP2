@@ -7,20 +7,24 @@ public class Rangierbahnhof {
   private Zug[] zuege = new Zug[anzahlGleise];
 
   public synchronized void ausfahren(int gleis) {
-	if (zuege[gleis] instanceof Zug) {
-	  zuege[gleis] = null;
-	  System.err.println("ausfahren");
-	  notify();
+	while (zuege[gleis] == null) {
+	  try {
+		wait();
+	  } catch (InterruptedException e) {
+	  }
 	}
-
+	zuege[gleis] = null;
+	System.err.println("ausfahren");
   }
 
   public synchronized void einfahren(int gleis) {
-	if(zuege[gleis] == null) {
+	while (zuege[gleis] != new Zug()) {
+	  try {
+		wait();
+	  } catch (InterruptedException e) {
+	  }
+	}
 	zuege[gleis] = new Zug();
 	System.err.println("eingefahren");
-	notify();
-	}
-
   }
 }
