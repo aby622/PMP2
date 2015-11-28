@@ -1,0 +1,30 @@
+package aufgabenblatt2;
+
+import java.util.Observable;
+import java.util.Observer;
+
+import aufgabenblatt3.Simulation;
+
+public class Visualisierung implements Observer {
+
+  private Simulation simu = new Simulation(null);
+
+  public Simulation getSimulation(){
+	return simu;
+  }
+  public void setSimulation(Simulation simu) {
+	this.simu = simu;
+	setChanged();
+	notifyObservers();
+  }
+  public static void main(String[] ags) {
+	Thread eins = new Thread(new Simulation());
+	eins.start();
+  }
+  @Override
+  public void update(Observable o, Object arg) {
+	// TODO Auto-generated method stub
+	
+  }
+
+}

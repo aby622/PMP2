@@ -1,5 +1,6 @@
 package aufgabenblatt3;
 
+
 public class Lokfuehrer extends Thread implements IbewegeZug {
 
   protected IbewegeZug aktion;
@@ -16,21 +17,17 @@ public class Lokfuehrer extends Thread implements IbewegeZug {
 
   @Override
   public void run() {
-	
-	
+	while(!isInterrupted()){
 	while (new Lokfuehrer(aktion, bahnhof) == new Lokfuehrer(new Einfahren(), bahnhof)) {
 	  new Lokfuehrer(new Einfahren(), bahnhof).start();
 	}
 	while (new Lokfuehrer(aktion, bahnhof) == new Lokfuehrer(new Ausfahren(), bahnhof)) {
 	  new Lokfuehrer(new Ausfahren(), bahnhof).start();
 	}
+	}
   }
+
+
   
-  public static void main(String[]ags){
-	Rangierbahnhof bahnhof = new Rangierbahnhof();
-	Lokfuehrer erster = new Lokfuehrer(new Einfahren(), bahnhof);
-	erster.parken(1);
-	Lokfuehrer zweiter = new Lokfuehrer(new Ausfahren(), bahnhof);
-	zweiter.parken(1);
-  }
+
 }
