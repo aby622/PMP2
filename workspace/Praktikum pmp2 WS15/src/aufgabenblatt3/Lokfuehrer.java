@@ -11,23 +11,20 @@ public class Lokfuehrer extends Thread implements IbewegeZug {
 	this.bahnhof = bahnhof;
   }
 
-  public void parken(int gleise) {
-	aktion.parken(gleise);
-  }
-
   @Override
   public void run() {
-	while(!isInterrupted()){
+	
 	while (new Lokfuehrer(aktion, bahnhof) == new Lokfuehrer(new Einfahren(), bahnhof)) {
-	  new Lokfuehrer(new Einfahren(), bahnhof).start();
+	new Lokfuehrer(new Einfahren(), bahnhof).start();
 	}
 	while (new Lokfuehrer(aktion, bahnhof) == new Lokfuehrer(new Ausfahren(), bahnhof)) {
 	  new Lokfuehrer(new Ausfahren(), bahnhof).start();
 	}
-	}
   }
 
-
-  
-
+  @Override
+  public void parken(Zug[] zug, int gleis) {
+	aktion.parken(zug, gleis);
+	
+  }
 }

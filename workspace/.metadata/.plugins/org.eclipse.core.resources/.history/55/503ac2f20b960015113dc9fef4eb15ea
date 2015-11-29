@@ -1,0 +1,44 @@
+package aufgabenblatt3;
+
+import javax.lang.model.type.NullType;
+
+public class Rangierbahnhof {
+
+  private int anzahlGleise = 2;
+
+  private Zug[] zuege = new Zug[anzahlGleise];
+
+  public Zug[] getZug() {
+	return zuege;
+  }
+
+  public synchronized void ausfahren(int gleis) {
+	if (zuege[gleis] instanceof Zug) {
+	  try {
+		zuege[gleis] = null;
+		System.err.println("ausfahren");
+		wait();
+	  } catch (InterruptedException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	  }
+	}
+
+	notify();
+  }
+
+  public synchronized void einfahren(int gleis) {
+	if (zuege[gleis] instanceof NullType) {
+	  try {
+		zuege[gleis] = new Zug();
+		System.err.println("eingefahren");
+		wait();
+	  } catch (InterruptedException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	  }
+	}
+
+	notify();
+  }
+}

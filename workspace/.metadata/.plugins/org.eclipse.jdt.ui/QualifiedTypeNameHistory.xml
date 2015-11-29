@@ -44,5 +44,11 @@
 <fullyQualifiedTypeName name="javafx.scene.shape.StrokeType"/>
 <fullyQualifiedTypeName name="javafx.concurrent.Task"/>
 <fullyQualifiedTypeName name="javafx.scene.control.Label"/>
+<fullyQualifiedTypeName name="aufgabenblatt3.Simulation"/>
+<fullyQualifiedTypeName name="java.util.Observable"/>
+<fullyQualifiedTypeName name="aufgabenblatt3.Zug"/>
+<fullyQualifiedTypeName name="javafx.beans.Observable"/>
+<fullyQualifiedTypeName name="java.util.Observer"/>
+<fullyQualifiedTypeName name="com.sun.javafx.logging.Logger"/>
 <fullyQualifiedTypeName name="javafx.application.Platform"/>
 </qualifiedTypeNameHistroy>

@@ -1,7 +1,0 @@
-package aufgabenblatt3;
-
-public class Lokfuehrer extends Thread{
-  
-  
-
-}

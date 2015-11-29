@@ -1,42 +1,45 @@
 package aufgabenblatt3;
 
-import javax.lang.model.type.NullType;
-
 public class Rangierbahnhof {
 
   private int anzahlGleise = 3;
 
-  private Zug[] zuege = new Zug[anzahlGleise];
-  
-  public Zug[] getZug(){
+  protected Zug[] zuege = new Zug[anzahlGleise];
+
+  public Zug[] getZug() {
 	return zuege;
   }
 
-  public synchronized void ausfahren(int gleis) {
-	if (zuege[gleis] instanceof NullType) {
+  public synchronized void ausfahren(Zug[] zug ,int gleis) {
+	
+	if (zug[gleis] instanceof Zug) {
 	  try {
-			wait();
-		  } catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		  }
+		zug[gleis] = null;
+		zuege = zug;
+		System.err.println("ausfahren");
+		System.err.println("" +  zuege[0]+"   " + zuege[1]+"   " + zuege[2]);
+		wait();
+	  } catch (InterruptedException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	  }
 	}
-	  zuege[gleis] = null;
-	  System.err.println("ausfahren");
-	  notify();
+	notify();
   }
-
-  public synchronized void einfahren(int gleis) {
-	if(zuege[gleis] instanceof Zug) {
+  
+  public synchronized void einfahren(Zug[] zug, int gleis) {
+	if (zug[gleis] == null) {
 	  try {
-			wait();
-		  } catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		  }
+		zug[gleis] = new Zug();
+		zuege = zug;
+		System.err.println("eingefahren");
+		System.err.println("" +  zuege[0]+"   " + zuege[1]+"   " + zuege[2]);
+		wait();
+	  } catch (InterruptedException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	  }
 	}
-	zuege[gleis] = new Zug();
-	System.err.println("eingefahren");
 	notify();
   }
 }

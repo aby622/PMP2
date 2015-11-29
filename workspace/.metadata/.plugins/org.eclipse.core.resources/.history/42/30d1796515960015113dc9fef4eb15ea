@@ -1,0 +1,5 @@
+package aufgabenblatt3;
+
+public interface IbewegeZug {
+  public Rangierbahnhof parken(int gleis);
+}

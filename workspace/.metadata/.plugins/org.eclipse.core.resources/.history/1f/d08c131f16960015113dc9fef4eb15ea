@@ -1,0 +1,10 @@
+package aufgabenblatt3;
+
+public class Einfahren extends Rangierbahnhof implements IbewegeZug{
+
+  @Override
+  public Zug[] parken(int gleis) {
+	return einfahren(gleis);
+  }
+
+}
