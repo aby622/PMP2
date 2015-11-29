@@ -46,13 +46,13 @@ public class Simulation extends Observable implements Runnable {
    */
   @Override
   public void run() {
-	Lokfuehrer erster = new Lokfuehrer(new Einfahren(), bahnhof);
-	Lokfuehrer zweiter = new Lokfuehrer(new Ausfahren(), bahnhof);
 	while (!Thread.currentThread().isInterrupted()) {
 	  try {
 		Thread.sleep(2000);
 		int zufall = (int) (3 * Math.random());
 		int zufall1 = (int) (3 * Math.random());
+		Lokfuehrer erster = new Lokfuehrer(new Einfahren(), bahnhof);
+		Lokfuehrer zweiter = new Lokfuehrer(new Ausfahren(), bahnhof);
 		erster.parken(bahnhof.zuege, zufall1);
 		zweiter.parken(bahnhof.zuege, zufall);
 		setChanged();

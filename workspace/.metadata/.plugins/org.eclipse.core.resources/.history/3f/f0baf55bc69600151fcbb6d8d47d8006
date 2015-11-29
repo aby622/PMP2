@@ -54,6 +54,7 @@ public class Simulation extends Observable implements Runnable {
 		int zufall = (int) (3 * Math.random());
 		int zufall1 = (int) (3 * Math.random());
 		erster.parken(bahnhof.zuege, zufall1);
+		Thread.sleep(500);
 		zweiter.parken(bahnhof.zuege, zufall);
 		setChanged();
 		notifyObservers();
