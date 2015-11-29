@@ -15,7 +15,7 @@ package aufgabenblatt3;
  * @author Leon
  *
  */
-public class Ausfahren extends Rangierbahnhof implements IbewegeZug {
+public class Ausfahren extends RangierBf implements IZugBewegen {
   /**
    * @Override Überschreibt Methode parken aus Interface IbewegeZug
    */

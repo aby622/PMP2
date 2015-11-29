@@ -9,7 +9,7 @@ public class JUnitFahren {
   @Test
   public void ausfahrenTest() {
 
-	RangierBf bahnhof = new RangierBf();
+	Rangierbahnhof bahnhof = new Rangierbahnhof();
 	Zug[] resu = { new Zug(), null, null };
 	Zug[] zuege = new Zug[3];
 
@@ -21,7 +21,7 @@ public class JUnitFahren {
   @Test
   public void einfahrenTest() {
 
-	RangierBf bahnhof = new RangierBf();
+	Rangierbahnhof bahnhof = new Rangierbahnhof();
 	Zug[] zuege = { new Zug(), null, null };
 	Zug[] resu = new Zug[3];
 

@@ -3,3 +3,9 @@
 1448453124480	Delete element
 1448738533152	Delete element
 1448742746332	Delete element
+1448839208796	Rename type 'Rangierbahnhof'
+1448839259261	Rename method 'setzeZugIf'
+1448839281451	Rename method 'addBahnhof'
+1448839328127	Rename type 'Lokfuehrer'
+1448839379789	Rename type 'IbewegeZug'
+1448839408885	Rename type 'Simulation'

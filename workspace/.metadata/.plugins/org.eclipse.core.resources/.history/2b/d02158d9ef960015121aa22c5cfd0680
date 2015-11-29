@@ -54,7 +54,7 @@ public class Frame extends Application implements Observer {
    * Konstruktor
    */
   public Frame() {
-	Simu obs = new Simu(new RangierBf());
+	Simulation obs = new Simulation(new RangierBf());
 	obs.addObserver(this);
 	new Thread(obs).start();
 	zuege = obs.getBahnhof().getZug();
@@ -66,7 +66,7 @@ public class Frame extends Application implements Observer {
    * 
    * @param bahnhof
    */
-  private void addBf(Pane bahnhof) {
+  private void addBahnhof(Pane bahnhof) {
 	Path path = new Path();
 	MoveTo moveTo = new MoveTo();
 	moveTo.setX(150);
@@ -132,16 +132,16 @@ public class Frame extends Application implements Observer {
    * @param gridpane
    * @return
    */
-  private GridPane zeichneBf(Zug[] zuege, GridPane gridpane) {
+  private GridPane setzeZugIf(Zug[] zuege, GridPane gridpane) {
 	gridpane.setPadding(new Insets(5));
 	gridpane.setHgap(5);
 	gridpane.setVgap(5);
 	Pane bahnhof = new Pane();
 	Pane bahnhof1 = new Pane();
 	Pane bahnhof2 = new Pane();
-	addBf(bahnhof);
-	addBf(bahnhof1);
-	addBf(bahnhof2);
+	addBahnhof(bahnhof);
+	addBahnhof(bahnhof1);
+	addBahnhof(bahnhof2);
 	gridpane.add(bahnhof, 0, 0);
 	gridpane.add(bahnhof1, 0, 1);
 	gridpane.add(bahnhof2, 0, 2);
@@ -181,12 +181,12 @@ public class Frame extends Application implements Observer {
    */
   @Override
   public void update(Observable o, Object arg) {
-	zuege = ((Simu) o).getBahnhof().getZug();
+	zuege = ((Simulation) o).getBahnhof().getZug();
 	Platform.runLater(new Runnable() {
 	  @Override
 	  public void run() {
 		thisGridPane.getChildren().clear();
-		thisGridPane = zeichneBf(zuege, thisGridPane);
+		thisGridPane = setzeZugIf(zuege, thisGridPane);
 	  }
 	});
   }

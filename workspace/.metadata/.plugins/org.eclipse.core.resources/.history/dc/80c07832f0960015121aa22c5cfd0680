@@ -54,7 +54,7 @@ public class Frame extends Application implements Observer {
    * Konstruktor
    */
   public Frame() {
-	Simu obs = new Simu(new RangierBf());
+	Simulation obs = new Simulation(new RangierBf());
 	obs.addObserver(this);
 	new Thread(obs).start();
 	zuege = obs.getBahnhof().getZug();
@@ -181,7 +181,7 @@ public class Frame extends Application implements Observer {
    */
   @Override
   public void update(Observable o, Object arg) {
-	zuege = ((Simu) o).getBahnhof().getZug();
+	zuege = ((Simulation) o).getBahnhof().getZug();
 	Platform.runLater(new Runnable() {
 	  @Override
 	  public void run() {
