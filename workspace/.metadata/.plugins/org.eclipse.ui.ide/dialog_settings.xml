@@ -5,10 +5,14 @@
 		<item value="false" key="WizardProjectsImportPage.STORE_COPY_PROJECT_ID"/>
 		<item value="false" key="WizardProjectsImportPage.STORE_ARCHIVE_SELECTED"/>
 		<list key="WizardProjectsImportPage.STORE_DIRECTORIES">
+			<item value="C:\Users\Leon\Desktop\UNI\S1\Programmieren1"/>
 			<item value="C:\Users\Leon\pmp2\workspace\Praktikum pmp2 WS15"/>
 		</list>
 		<list key="WizardProjectsImportPage.STORE_ARCHIVES">
 			<item value=""/>
 		</list>
+	</section>
+	<section name="org.eclipse.ui.internal.ide.dialogs.ProjectContentsLocationArea">
+		<item value="C:\Users\Leon\pmp2\workspace" key="OUTSIDE_LOCATION"/>
 	</section>
 </section>

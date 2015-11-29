@@ -11,8 +11,6 @@
 <fullyQualifiedTypeName name="java.util.stream.Collectors"/>
 <fullyQualifiedTypeName name="java.time.LocalTime"/>
 <fullyQualifiedTypeName name="aufgabenblatt2.JUnitStreamStringArray"/>
-<fullyQualifiedTypeName name="org.junit.Test"/>
-<fullyQualifiedTypeName name="org.junit.Assert"/>
 <fullyQualifiedTypeName name="java.lang.System"/>
 <fullyQualifiedTypeName name="aufgabenblatt2.Rechner.Operation"/>
 <fullyQualifiedTypeName name="java.lang.Math"/>
@@ -45,7 +43,6 @@
 <fullyQualifiedTypeName name="javafx.scene.control.Label"/>
 <fullyQualifiedTypeName name="aufgabenblatt3.Simulation"/>
 <fullyQualifiedTypeName name="java.util.Observable"/>
-<fullyQualifiedTypeName name="aufgabenblatt3.Zug"/>
 <fullyQualifiedTypeName name="javafx.beans.Observable"/>
 <fullyQualifiedTypeName name="java.util.Observer"/>
 <fullyQualifiedTypeName name="com.sun.javafx.logging.Logger"/>
@@ -55,4 +52,7 @@
 <fullyQualifiedTypeName name="javafx.concurrent.Task"/>
 <fullyQualifiedTypeName name="javafx.application.Platform"/>
 <fullyQualifiedTypeName name="java.lang.Thread"/>
+<fullyQualifiedTypeName name="org.junit.Test"/>
+<fullyQualifiedTypeName name="aufgabenblatt3.Zug"/>
+<fullyQualifiedTypeName name="org.junit.Assert"/>
 </qualifiedTypeNameHistroy>
