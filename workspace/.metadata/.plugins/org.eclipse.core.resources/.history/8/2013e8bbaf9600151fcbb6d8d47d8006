@@ -1,0 +1,36 @@
+package aufgabenblatt3;
+
+import java.util.Observable;
+
+public class Simulation extends Observable implements Runnable {
+
+  public Rangierbahnhof bahnhof = new Rangierbahnhof();
+
+  public Simulation(Rangierbahnhof bahnhof) {
+	this.bahnhof = bahnhof;
+  }
+	
+  public Rangierbahnhof getBahnhof() {
+	return bahnhof;
+  }
+
+  @Override
+  public void run() {
+	while (true) {
+	  try {
+		Thread.sleep(2000);
+		int zufall4 = (int) (2 * Math.random() + 1);
+		Lokfuehrer vierter = new Lokfuehrer(new Ausfahren(), bahnhof);
+		vierter.parken(bahnhof.zuege, zufall4);
+		int zufall1 = (int) (2 * Math.random() + 1);
+		Lokfuehrer erster = new Lokfuehrer(new Einfahren(), bahnhof);
+		erster.parken(bahnhof.zuege, zufall1);
+		setChanged();
+		notifyObservers();
+
+	  } catch (InterruptedException e) {
+	  }
+
+	}
+  }
+}
