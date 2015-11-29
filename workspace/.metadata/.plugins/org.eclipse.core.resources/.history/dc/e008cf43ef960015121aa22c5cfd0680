@@ -6,15 +6,13 @@
  */
 
 package aufgabenblatt3;
-
 /**
  * Klasse Zug hat keine weiteren Eigenschaften.
- * 
  * @author Leon
  *
  */
 public class Zug {
-  /**
-   * Empty
-   */
+/**
+ * Empty
+ */
 }

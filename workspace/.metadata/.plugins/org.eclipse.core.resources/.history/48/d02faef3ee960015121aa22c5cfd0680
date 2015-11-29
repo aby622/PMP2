@@ -25,6 +25,15 @@ public class Rangierbahnhof {
   protected Zug[] zuege = new Zug[anzahlGleise];
 
   /**
+   * Getter
+   * 
+   * @return
+   */
+  public Zug[] getZug() {
+	return zuege;
+  }
+
+  /**
    * synchronized Methode ausfahren überschreibt eine Zelle des übergebenen Zug
    * array an dem Index welcher dem Gleis entspricht
    * 
@@ -56,14 +65,5 @@ public class Rangierbahnhof {
 	  System.err.println("" + zuege[0] + "		" + zuege[1] + "		" + zuege[2]);
 	}
 	notify();
-  }
-
-  /**
-   * Getter
-   * 
-   * @return
-   */
-  public Zug[] getZug() {
-	return zuege;
   }
 }

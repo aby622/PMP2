@@ -50,7 +50,7 @@ public class Simulation extends Observable implements Runnable {
 	Lokfuehrer zweiter = new Lokfuehrer(new Ausfahren(), bahnhof);
 	while (!Thread.currentThread().isInterrupted()) {
 	  try {
-		Thread.sleep(500);
+		Thread.sleep(1500);
 		int zufall1 = (int) (3 * Math.random());
 		erster.parken(bahnhof.zuege, zufall1);
 		setChanged();
@@ -58,7 +58,7 @@ public class Simulation extends Observable implements Runnable {
 	  } catch (InterruptedException e) {
 	  }
 	  try {
-		Thread.sleep(500);
+		Thread.sleep(1500);
 		int zufall = (int) (3 * Math.random());
 		zweiter.parken(bahnhof.zuege, zufall);
 		setChanged();

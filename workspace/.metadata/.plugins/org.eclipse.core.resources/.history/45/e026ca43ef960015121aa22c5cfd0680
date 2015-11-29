@@ -39,7 +39,6 @@ public class Frame extends Application implements Observer {
   public static void main(String[] args) {
 	Application.launch();
   }
-
   /**
    * GridPane thisGridPane
    */
