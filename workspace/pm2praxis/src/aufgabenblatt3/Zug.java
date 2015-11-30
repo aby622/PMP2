@@ -15,6 +15,10 @@ package aufgabenblatt3;
  */
 public class Zug {
   /**
-   * Empty
+   * toString Methode
    */
+  @Override
+  public String toString() {
+	return "XXX";
+  }
 }

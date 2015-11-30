@@ -15,28 +15,39 @@ package aufgabenblatt3;
  * @author Leon
  *
  */
-public class Einfahren extends RangierBf implements IZugBewegen {
-  
+public class Einfahren extends RangierBf implements IZugParken {
+  /**
+   * RangierBf bahnhof
+   */
+  private RangierBf bahnhof;
+  /**
+   * int gleis
+   */
   private int gleis;
-  
-  private RangierBf bf;
-  
+  /**
+   * Zug zug
+   */
   private Zug zug;
-  
-  public Einfahren(RangierBf bahnhof, Zug zug, int gleis){
-	this.gleis=gleis;
-	this.bf = bahnhof;
+
+  /**
+   * Konstruktor
+   * 
+   * @param bahnhof
+   * @param zug
+   * @param gleis
+   */
+  public Einfahren(RangierBf bahnhof, Zug zug, int gleis) {
+	this.gleis = gleis;
+	this.bahnhof = bahnhof;
 	this.zug = zug;
-	
   }
+
   /**
    * @Override Überschreibt Methode parken aus Interface IbewegeZug
    */
   @Override
   public void parken() {
-	// Zug objekt erzeugen
-	// -> versuch: Zug -> Gleis 'gleis' 
-	bf.einfahren(zug, gleis);
+	bahnhof.einfahren(zug, gleis);
   }
 
 }

@@ -45,14 +45,14 @@ public class Frame extends Application implements Observer {
   }
 
   /**
+   * Zug[] zuege
+   */
+  private Zug[] gleise;
+
+  /**
    * GridPane thisGridPane
    */
   private GridPane thisGridPane = new GridPane();
-
-  /**
-   * Zug[] zuege
-   */
-  private Zug[] zuege;
 
   /**
    * Konstruktor
@@ -61,7 +61,7 @@ public class Frame extends Application implements Observer {
 	Simu obs = new Simu(new RangierBf());
 	obs.addObserver(this);
 	new Thread(obs).start();
-	zuege = obs.getBahnhof().getGleise();
+	gleise = obs.getBahnhof().getGleise();
   }
 
   /**
@@ -129,14 +129,42 @@ public class Frame extends Application implements Observer {
   }
 
   /**
+   * @Override start Methode
+   */
+  @Override
+  public void start(Stage primaryStage) {
+	StackPane root = new StackPane();
+	root.getChildren().add(thisGridPane);
+	primaryStage.setTitle("Rangierbahnhof");
+	primaryStage.setScene(new Scene(root, 180, 600));
+	primaryStage.show();
+  }
+
+  /**
+   * @Override update Methode aktualisiert thisGridPane und setzt die neuen Züge
+   *           durch Methode setzeZugIf.
+   */
+  @Override
+  public void update(Observable o, Object arg) {
+	gleise = ((Simu) o).getBahnhof().getGleise();
+	Platform.runLater(new Runnable() {
+	  @Override
+	  public void run() {
+		thisGridPane.getChildren().clear();
+		thisGridPane = zeichneBf(gleise, thisGridPane);
+	  }
+	});
+  }
+
+  /**
    * Zeichnet den Bahnhof und fügt der GridPane Zuege hinzu wenn der jeweilige
    * Zug[] index einer Instanz von der Klasse Zug entspricht.
    * 
-   * @param zuege
+   * @param gleise
    * @param gridpane
    * @return
    */
-  private GridPane zeichneBf(Zug[] zuege, GridPane gridpane) {
+  private GridPane zeichneBf(Zug[] gleise, GridPane gridpane) {
 	gridpane.setPadding(new Insets(5));
 	gridpane.setHgap(5);
 	gridpane.setVgap(5);
@@ -149,49 +177,22 @@ public class Frame extends Application implements Observer {
 	gridpane.add(bahnhof, 0, 0);
 	gridpane.add(bahnhof1, 0, 1);
 	gridpane.add(bahnhof2, 0, 2);
-	if (zuege[0] instanceof Zug) {
+
+	if (gleise[0] instanceof Zug) {
 	  Pane zug = new Pane();
 	  addZug(zug);
 	  gridpane.add(zug, 0, 0);
 	}
-	if (zuege[1] instanceof Zug) {
+	if (gleise[1] instanceof Zug) {
 	  Pane zug1 = new Pane();
 	  addZug(zug1);
 	  gridpane.add(zug1, 0, 1);
 	}
-	if (zuege[2] instanceof Zug) {
+	if (gleise[2] instanceof Zug) {
 	  Pane zug2 = new Pane();
 	  addZug(zug2);
 	  gridpane.add(zug2, 0, 2);
 	}
 	return gridpane;
-  }
-
-  /**
-   * @Override start Methode
-   */
-  @Override
-  public void start(Stage primaryStage) {
-	StackPane root = new StackPane();
-	root.getChildren().add(thisGridPane);
-	primaryStage.setTitle("Bahnhof");
-	primaryStage.setScene(new Scene(root, 200, 300));
-	primaryStage.show();
-  }
-
-  /**
-   * @Override update Methode aktualisiert thisGridPane und setzt die neuen Züge
-   *           durch Methode setzeZugIf.
-   */
-  @Override
-  public void update(Observable o, Object arg) {
-	zuege = ((Simu) o).getBahnhof().getGleise();
-	Platform.runLater(new Runnable() {
-	  @Override
-	  public void run() {
-		thisGridPane.getChildren().clear();
-		thisGridPane = zeichneBf(zuege, thisGridPane);
-	  }
-	});
   }
 }

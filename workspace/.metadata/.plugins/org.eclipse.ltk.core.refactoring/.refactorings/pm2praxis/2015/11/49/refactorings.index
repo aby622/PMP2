@@ -1,1 +1,5 @@
 1448907646588	Delete element
+1448911399167	Rename type 'IZugBewegen'
+1448917714393	Rename field 'zuege'
+1448917755545	Rename local variable 'zuege'
+1448918201103	Rename local variable 'lokf'

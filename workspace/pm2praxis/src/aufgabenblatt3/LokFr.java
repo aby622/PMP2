@@ -14,23 +14,18 @@ package aufgabenblatt3;
  * @author Leon
  *
  */
-public class LokFr extends Thread implements IZugBewegen {
+public class LokFr extends Thread implements IZugParken {
   /**
    * IbewegeZug
    */
-  protected IZugBewegen aktion;
-  /**
-   * Rangierbahnhof bahnhof
-   */
-
+  protected IZugParken aktion;
 
   /**
    * Konstruktor
    * 
    * @param aktion
-   * @param bahnhof
    */
-  public LokFr(IZugBewegen aktion) {
+  public LokFr(IZugParken aktion) {
 	this.aktion = aktion;
   }
 
@@ -48,7 +43,6 @@ public class LokFr extends Thread implements IZugBewegen {
    */
   @Override
   public void run() {
-	this.aktion.parken();
-	System.err.println("Habe gearbeitet.");
+	  this.aktion.parken();
   }
 }
