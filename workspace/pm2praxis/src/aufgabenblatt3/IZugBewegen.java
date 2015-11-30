@@ -20,5 +20,5 @@ public interface IZugBewegen {
    * @param zug
    * @param gleis
    */
-  public void parken(Zug[] zug, int gleis);
+  public void parken();
 }

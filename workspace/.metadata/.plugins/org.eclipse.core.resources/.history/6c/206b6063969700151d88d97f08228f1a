@@ -59,7 +59,6 @@ public class Simu extends Observable implements Runnable {
 		LokFr lokf;
 		
 		boolean wahr =  Math.random() < 0.5;
-		
 		try {
 		  if (wahr) {
 			lokf = new LokFr(new Einfahren(bahnhof, new Zug(), gleis));

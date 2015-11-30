@@ -31,21 +31,22 @@ public class RangierBf {
    * @param zug
    * @param gleis
    */
-  public synchronized void ausfahren(int gleis) {
+  public synchronized Zug[] ausfahren(int gleis) {
 
-	while (gleise[gleis] == null) {
-	  try {
-		System.err.println("Kaffeepause");
+	while (gleise[gleis] instanceof Zug) {
+	  try{
 		wait();
-	  } catch (InterruptedException e) {
-
+	  } catch (InterruptedException e){
+		
 	  }
 	}
-	System.err.println("Fahre jz aus");
+
 	gleise[gleis] = null;
-	System.err.println("ausgefahren--->");
+	System.err.println("ausfahren--->");
 	System.err.println("" + gleise[0] + "		" + gleise[1] + "		" + gleise[2]);
 	notifyAll();
+
+	return gleise;
   }
 
   /**
@@ -55,23 +56,24 @@ public class RangierBf {
    * @param zug
    * @param gleis
    */
-  public synchronized void einfahren(Zug zug, int gleis) {
+  public synchronized Zug[] einfahren(Zug zug, int gleis) {
 	// solange gleis nicht frei: warten
 	// dann, wenn frei: belegen + notifyAll
 
 	while (gleise[gleis] != null) {
-	  try {
-		System.err.println("Kaffeepause");
+	  try{
 		wait();
-	  } catch (InterruptedException e) {
+	  } catch (InterruptedException e){
+		
 	  }
 	}
-	System.err.println("Fahre jz ein");
+
 	gleise[gleis] = zug;
-	System.err.println("<--- eingefahren");
+	System.err.println("<--- einfahren");
 	System.err.println("" + gleise[0] + "		" + gleise[1] + "		" + gleise[2]);
 	notifyAll();
 
+	return gleise;
   }
 
   /**

@@ -7,6 +7,10 @@
 
 package aufgabenblatt3;
 
+// kontinuierlich neue Lokführer erzeugen
+// jeder Lokführer hat nur genau eine Aufgabe (z.B. 1x einfahren)
+// Methoden einfahren() und ausfahren() -> mit wait() sichern
+
 import java.util.Observable;
 import java.util.Observer;
 
@@ -57,7 +61,7 @@ public class Frame extends Application implements Observer {
 	Simu obs = new Simu(new RangierBf());
 	obs.addObserver(this);
 	new Thread(obs).start();
-	zuege = obs.getBahnhof().getZug();
+	zuege = obs.getBahnhof().getGleise();
   }
 
   /**
@@ -181,7 +185,7 @@ public class Frame extends Application implements Observer {
    */
   @Override
   public void update(Observable o, Object arg) {
-	zuege = ((Simu) o).getBahnhof().getZug();
+	zuege = ((Simu) o).getBahnhof().getGleise();
 	Platform.runLater(new Runnable() {
 	  @Override
 	  public void run() {

@@ -21,7 +21,7 @@ public class Einfahren extends RangierBf implements IZugBewegen {
   
   private RangierBf bf;
   
-  private Zug zug;
+  Zug zug = new Zug();
   
   public Einfahren(RangierBf bahnhof, Zug zug, int gleis){
 	this.gleis=gleis;

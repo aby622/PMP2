@@ -22,7 +22,7 @@ public class LokFr extends Thread implements IZugBewegen {
   /**
    * Rangierbahnhof bahnhof
    */
-  protected RangierBf bahnhof;
+
 
   /**
    * Konstruktor
@@ -30,9 +30,8 @@ public class LokFr extends Thread implements IZugBewegen {
    * @param aktion
    * @param bahnhof
    */
-  public LokFr(IZugBewegen aktion, RangierBf bahnhof) {
+  public LokFr(IZugBewegen aktion) {
 	this.aktion = aktion;
-	this.bahnhof = bahnhof;
   }
 
   /**
@@ -40,8 +39,8 @@ public class LokFr extends Thread implements IZugBewegen {
    *           und ein bestimmtes Gleis
    */
   @Override
-  public void parken(Zug[] zug, int gleis) {
-	aktion.parken(zug, gleis);
+  public void parken() {
+	aktion.parken();
   }
 
   /**
@@ -49,7 +48,7 @@ public class LokFr extends Thread implements IZugBewegen {
    */
   @Override
   public void run() {
-	new LokFr(new Einfahren(), bahnhof).start();
-	new LokFr(new Ausfahren(), bahnhof).start();
+	this.aktion.parken();
+	System.err.println("Habe gearbeitet.");
   }
 }

@@ -8,25 +8,22 @@
 package aufgabenblatt3;
 
 /**
- * Klasse Einfahren extends Rangierbahnhof implements IbewegeZug überschreibt
+ * Klasse Ausfahren extends Rangierbahnhof implements IbewegeZug überschreibt
  * die parken Methode aus dem Interface IbewegeZug und verbindet es mit der
  * entsprechenden synchronized Methode aus Rangierbahnhof.
  * 
  * @author Leon
  *
  */
-public class Einfahren extends RangierBf implements IZugBewegen {
+public class Ausfahren extends RangierBf implements IZugBewegen {
   
+
   private int gleis;
-  
   private RangierBf bf;
   
-  private Zug zug;
-  
-  public Einfahren(RangierBf bahnhof, Zug zug, int gleis){
+  public Ausfahren(RangierBf bahnhof, int gleis){
 	this.gleis=gleis;
 	this.bf = bahnhof;
-	this.zug = zug;
 	
   }
   /**
@@ -36,7 +33,7 @@ public class Einfahren extends RangierBf implements IZugBewegen {
   public void parken() {
 	// Zug objekt erzeugen
 	// -> versuch: Zug -> Gleis 'gleis' 
-	bf.einfahren(zug, gleis);
+	ausfahren(gleis);
   }
 
 }

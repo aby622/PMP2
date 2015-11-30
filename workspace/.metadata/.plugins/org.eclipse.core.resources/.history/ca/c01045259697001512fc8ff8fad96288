@@ -31,7 +31,7 @@ public class RangierBf {
    * @param zug
    * @param gleis
    */
-  public synchronized void ausfahren(int gleis) {
+  public synchronized Zug[] ausfahren(int gleis) {
 
 	while (gleise[gleis] == null) {
 	  try {
@@ -46,6 +46,7 @@ public class RangierBf {
 	System.err.println("ausgefahren--->");
 	System.err.println("" + gleise[0] + "		" + gleise[1] + "		" + gleise[2]);
 	notifyAll();
+	return gleise;
   }
 
   /**
@@ -55,7 +56,7 @@ public class RangierBf {
    * @param zug
    * @param gleis
    */
-  public synchronized void einfahren(Zug zug, int gleis) {
+  public synchronized Zug[] einfahren(Zug zug, int gleis) {
 	// solange gleis nicht frei: warten
 	// dann, wenn frei: belegen + notifyAll
 
@@ -72,6 +73,7 @@ public class RangierBf {
 	System.err.println("" + gleise[0] + "		" + gleise[1] + "		" + gleise[2]);
 	notifyAll();
 
+	return gleise;
   }
 
   /**
