@@ -41,6 +41,12 @@ public class RangierBf {
 	  }
 	}
 	gleise[gleis] = null;
+	try {
+	  Thread.sleep(500);
+	} catch (InterruptedException e) {
+	  // TODO Auto-generated catch block
+	  e.printStackTrace();
+	}
 	System.err.println("\n1:" + gleise[0] + "	2:" + gleise[1] + "	3:" + gleise[2]);
 	notifyAll();
   }
@@ -61,6 +67,12 @@ public class RangierBf {
 	  }
 	}
 	gleise[gleis] = zug;
+	try {
+	  Thread.sleep(500);
+	} catch (InterruptedException e) {
+	  // TODO Auto-generated catch block
+	  e.printStackTrace();
+	}
 	System.err.println("\n1:" + gleise[0] + "	2:" + gleise[1] + "	3:" + gleise[2]);
 	notifyAll();
   }

@@ -47,8 +47,9 @@ public class Simu extends Observable implements Runnable {
    */
   @Override
   public void run() {
-	LokFr lokFr;
+
 	while (!Thread.currentThread().isInterrupted()) {
+	  LokFr lokFr;
 	  int gleis = (int) (3 * Math.random());
 	  boolean wahr = Math.random() < 0.5;
 	  try {

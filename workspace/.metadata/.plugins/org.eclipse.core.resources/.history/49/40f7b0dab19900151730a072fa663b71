@@ -136,7 +136,7 @@ public class Frame extends Application implements Observer {
 	StackPane root = new StackPane();
 	root.getChildren().add(thisGridPane);
 	primaryStage.setTitle("Rangierbahnhof");
-	primaryStage.setScene(new Scene(root, 180, 300));
+	primaryStage.setScene(new Scene(root, 180, 600));
 	primaryStage.show();
   }
 

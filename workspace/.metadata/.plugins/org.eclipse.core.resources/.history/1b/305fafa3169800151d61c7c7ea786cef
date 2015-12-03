@@ -16,18 +16,19 @@ import java.util.Observable;
  * @author Leon
  *
  */
-public class Simulation extends Observable implements Runnable {
+public class Simu extends Observable implements Runnable {
+
   /**
    * Rangierbahnhof bahnhof
    */
-  protected Rangierbahnhof bahnhof = new Rangierbahnhof();
+  protected RangierBf bahnhof = new RangierBf();
 
   /**
    * Konstruktor
    * 
    * @param bahnhof
    */
-  public Simulation(Rangierbahnhof bahnhof) {
+  public Simu(RangierBf bahnhof) {
 	this.bahnhof = bahnhof;
   }
 
@@ -36,7 +37,7 @@ public class Simulation extends Observable implements Runnable {
    * 
    * @return
    */
-  public Rangierbahnhof getBahnhof() {
+  public RangierBf getBahnhof() {
 	return bahnhof;
   }
 
@@ -46,15 +47,19 @@ public class Simulation extends Observable implements Runnable {
    */
   @Override
   public void run() {
+	LokFr lokFr;
 	while (!Thread.currentThread().isInterrupted()) {
+	  int gleis = (int) (3 * Math.random());
+	  boolean wahr = Math.random() < 0.5;
 	  try {
-		Thread.sleep(2000);
-		int zufall4 = (int) (3 * Math.random());
-		Lokfuehrer vierter = new Lokfuehrer(new Ausfahren(), bahnhof);
-		vierter.parken(bahnhof.zuege, zufall4);
-		int zufall1 = (int) (3 * Math.random());
-		Lokfuehrer erster = new Lokfuehrer(new Einfahren(), bahnhof);
-		erster.parken(bahnhof.zuege, zufall1);
+		Thread.sleep(500);
+		if (wahr) {
+		  lokFr = new LokFr(new Einfahren(bahnhof, new Zug(), gleis));
+		  lokFr.start();
+		} else {
+		  lokFr = new LokFr(new Ausfahren(bahnhof, gleis));
+		  lokFr.start();
+		}
 		setChanged();
 		notifyObservers();
 	  } catch (InterruptedException e) {
