@@ -1,0 +1,74 @@
+package aufgabenblatt4;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Observable;
+
+public class Polygon extends Observable {
+
+  /**
+   * Liste von Punkten welche zusammen ein Polygon bilden
+   */
+  private List<Punkt> punkte;
+
+  public Polygon() {
+	punkte = new ArrayList<Punkt>();
+  }
+
+  /**
+   * Fuegt einen neuen Punkt zu der Liste von Punkten hinzu.
+   * 
+   * @param xPar
+   *          Der x-Wert
+   * @param yPar
+   *          Der y-Wert
+   */
+  public void hinzufuegen(int xPar, int yPar) {
+	punkte.add(new Punkt(xPar, yPar));
+	try {
+	  notify();
+	} catch (Exception e) {
+	  e.printStackTrace();
+	}
+  }
+
+
+  public int getYvonPunkt(int indexPar) {
+	return punkte.get(indexPar).getY();
+  }
+
+  public int getXvonPunkt(int indexPar) {
+	return punkte.get(indexPar).getX();
+  }
+
+  public int getAnzahlPunkte() {
+	return punkte.size();
+  }
+
+  /**
+   * Die innere Klasse definiert einen Punkt(x,y).
+   */
+  private class Punkt {
+
+	private int x;
+
+	private int y;
+
+	public Punkt(int xPar, int yPar) {
+	  setzeKoordinaten(xPar, yPar);
+	}
+
+	public void setzeKoordinaten(int xPar, int yPar) {
+	  x = xPar;
+	  y = yPar;
+	}
+
+	public int getY() {
+	  return y;
+	}
+
+	public int getX() {
+	  return x;
+	}
+  }
+}

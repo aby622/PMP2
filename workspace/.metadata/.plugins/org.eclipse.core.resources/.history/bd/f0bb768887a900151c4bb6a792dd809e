@@ -1,0 +1,44 @@
+package aufgabenblatt4;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Observable;
+import java.util.Observer;
+
+public class PolygonModell extends Observable implements Observer {
+
+  private List<Polygon> polygone;
+
+  private Polygon aktuellesPolygon;
+
+  public PolygonModell() {
+	polygone = new ArrayList<>();
+	aktuellesPolygon = new Polygon();
+	aktuellesPolygon.addObserver(this);
+  }
+
+  /**
+   * 
+   */
+  public void finishPolygone() {
+	polygone.add(aktuellesPolygon);
+	aktuellesPolygon = new Polygon();
+	aktuellesPolygon.addObserver(this);
+	notify();
+  }
+
+  /**
+   * 
+   */
+  public void verwerfe() {
+	aktuellesPolygon.deleteObserver(this);
+	aktuellesPolygon = new Polygon();
+	aktuellesPolygon.addObserver(this);
+	notify();
+  }
+
+  @Override
+  public void update(Observable arg0, Object arg1) {
+	notify();
+  }
+}
