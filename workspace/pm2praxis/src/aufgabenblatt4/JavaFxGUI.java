@@ -1,87 +1,149 @@
-package aufgabenblatt4;
+package fertig;
 
-import java.util.List;
 import javafx.application.Application;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextArea;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
+/**
+ * Die Klasse stellt das Benutzerinterace dar
+ * 
+ *
+ */
 public class JavaFxGUI extends Application {
 
+  /**
+   * Variablen
+   */
   private Stage primaryStage;
-
-  private final int width = 700;
-  private final int height = 700;
-
+  private Pane pane;
+  private TableView<Polygon> tabelle;
+  private PolygonTabelle polygonTabelle;
+  private TextArea flaeche;
+  private PolygonSkripting regulaererAusdruck = new PolygonSkripting();
+  private final int width, height;
   private PolygonDarstellung zeichenFlaeche;
 
-  public JavaFxGUI(Stage primaryStageD) {
-	primaryStage = primaryStageD;
-	try {
-	  start(primaryStageD);
-	} catch (Exception e) {
-	  e.printStackTrace();
-	}
+  /**
+   * Konstruktor
+   */
+  public JavaFxGUI() {
+	height = 700;
+	width = 700;
   }
 
-  @Override
-  public void start(Stage primaryStagePar) throws Exception {
-	primaryStage.setTitle("Interaktiver Zeicheneditor fuer Polygone");
-	primaryStage.setScene(new Scene(javaFxGui(), width, height));
-	primaryStage.show();
-	Polygon polygon = new Polygon();
-	polygon.addPunkt(10, 10);
-	zeichenFlaeche.zeichnePolygon(polygon);
+  /**
+   * Getter
+   * 
+   * @return pane
+   */
+  public Pane getPane() {
+	return pane;
   }
 
-  private Pane javaFxGui() {
+  /**
+   * Die Methode erstellt die GUI
+   * 
+   * @return pane
+   */
+  private Pane erstellePane() {
 	BorderPane pane = new BorderPane();
-	pane.setRight(polygoneListe());
+	pane.setRight(polygonTabelle());
 	pane.setCenter(zeichenflaeche());
-	pane.setBottom(befehlsEingabe());
+	pane.setBottom(befehlInput());
 	return pane;
   }
 
-  private Pane befehlsEingabe() {
-	BorderPane pane = new BorderPane();
-	TextArea eingabe = new TextArea();
-	pane.setCenter(eingabe);
-	pane.setBottom(buttonBefehle());
-	return pane;
-  }
-
-  private Pane buttonBefehle() {
+  /**
+   * Die Methode erstellt die Buttons
+   * 
+   * @return pane
+   */
+  private Pane befehlButtons() {
 	HBox pane = new HBox();
-	Button bestaetige = new Button("Bestaetigen");
-	Button verschieben = new Button("Verschieben");
-	pane.getChildren().addAll(bestaetige, verschieben);
+	Button befehl = new Button("Eingabe");
+	befehl.setOnAction(event -> {
+	  String text = flaeche.getText();
+	  try {
+		zeichenFlaeche.getModell().getPolygon().setPunkt(regulaererAusdruck.getX(text), regulaererAusdruck.getY(text));
+		flaeche.clear();
+	  } catch (Exception e) {
+		flaeche.setText("Ungültiger Befehl!");
+	  }
+	});
+	Button fertig = new Button("Fertig");
+	fertig.setOnAction(event -> {
+	  zeichenFlaeche.getModell().bearbeitungZuEnde();
+	  polygonTabelle.updateTabelle();
+	  flaeche.clear();
+	});
+	pane.getChildren().addAll(befehl, fertig);
 	return pane;
   }
 
-  private PolygonDarstellung zeichenflaeche() {
-	zeichenFlaeche = new PolygonDarstellung();
-	return zeichenFlaeche;
+  /**
+   * Die Methode erstellt die Polygondarstellung
+   * 
+   * @return Gibt die PolygonDarstellung zurueck
+   */
+  private Pane zeichenflaeche() {
+	StackPane pane = new StackPane();
+	zeichenFlaeche = new PolygonDarstellung(pane);
+	return pane;
   }
 
-  // LISTE FERTIGER POLYGONE
-  private Pane polygoneListe() {
-	ObservableList<List> oList = FXCollections.observableArrayList();
-	Label label = new Label("Polygon");
-	
-	TableView table = new TableView();
-	table.setEditable(true);
+  /**
+   * Die Methode erstellt die Befehlseingabe
+   * 
+   * @return pane
+   */
+  private Pane befehlInput() {
 	BorderPane pane = new BorderPane();
-
-	table.setItems(oList);
-	pane.setCenter(table);
+	flaeche = new TextArea();
+	flaeche.setMaxHeight(50);
+	pane.setCenter(flaeche);
+	pane.setBottom(befehlButtons());
 	return pane;
+  }
+
+  /**
+   * Die Methode erstellt eine Tabelle der Polygone
+   * 
+   * @return pane
+   */
+  private Pane polygonTabelle() {
+	BorderPane pane = new BorderPane();
+	tabelle = new TableView<Polygon>();
+	pane.setCenter(tabelle);
+	return pane;
+  }
+
+  /**
+   * Die Methode baut die GUI
+   */
+  @Override
+  public void start(Stage primaryStagePar) {
+	primaryStage = primaryStagePar;
+	primaryStage.setTitle("Zeicheneditor");
+	pane = erstellePane();
+	primaryStage.setScene(new Scene(pane, width, height));
+	PolygonModell modell = new PolygonModell(zeichenFlaeche);
+	zeichenFlaeche.setModell(modell);
+	polygonTabelle = new PolygonTabelle(this.tabelle, modell);
+	polygonTabelle.erstelleTabelle();
+	primaryStage.show();
+  }
+
+  /**
+   * Programmstart
+   */
+  public static void main(String[] args) {
+	launch(args);
   }
 }
