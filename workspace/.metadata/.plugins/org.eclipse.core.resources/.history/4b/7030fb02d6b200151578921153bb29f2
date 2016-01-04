@@ -148,6 +148,7 @@ public class PolygonDarstellung extends Canvas implements Observer {
    * Die Methode Zeichnet das fertige Polygon
    */
   public void zeichneFertigePolygone() {
+
 	for (int i = 0; i < modell.getListePolygone().size(); i++) {
 	  polygonZeichnung(modell.getListePolygone().get(i), Color.BLACK);
 	}

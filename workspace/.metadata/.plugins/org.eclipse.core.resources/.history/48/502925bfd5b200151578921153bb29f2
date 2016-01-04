@@ -87,6 +87,7 @@ public class PolygonDarstellung extends Canvas implements Observer {
 	pane.getChildren().add(this);
 	root = pane;
 	listener = new InvalidationListener() {
+
 	  @Override
 	  public void invalidated(javafx.beans.Observable observable) {
 		setWindow();
@@ -95,9 +96,12 @@ public class PolygonDarstellung extends Canvas implements Observer {
 		}
 	  }
 	};
+
 	root.widthProperty().addListener(listener);
 	root.heightProperty().addListener(listener);
+
 	addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
+
 	  @Override
 	  public void handle(MouseEvent event) {
 		Polygon aktuellesPolygon = modell.getPolygon();
@@ -116,6 +120,7 @@ public class PolygonDarstellung extends Canvas implements Observer {
   private synchronized void polygonZeichnung(Polygon polygon, Color farbe) {
 	if (polygon != null) {
 	  gc.setStroke(farbe);
+
 	  for (int i = 0; i < polygon.getListePunkte().size(); i++) {
 		double x1 = polygon.getXAtIndex(i);
 		double y1 = polygon.getYAtIndex(i);
@@ -148,6 +153,7 @@ public class PolygonDarstellung extends Canvas implements Observer {
    * Die Methode Zeichnet das fertige Polygon
    */
   public void zeichneFertigePolygone() {
+
 	for (int i = 0; i < modell.getListePolygone().size(); i++) {
 	  polygonZeichnung(modell.getListePolygone().get(i), Color.BLACK);
 	}
