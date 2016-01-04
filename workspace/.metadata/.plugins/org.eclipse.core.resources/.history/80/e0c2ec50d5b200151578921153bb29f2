@@ -13,8 +13,7 @@ import java.util.Observer;
 
 /**
  * Die Klasse repräsentiert ein Polygon
- *
- *
+ * 
  */
 public class Polygon extends Observable {
 
