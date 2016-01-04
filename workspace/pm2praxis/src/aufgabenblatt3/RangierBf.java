@@ -44,7 +44,6 @@ public class RangierBf {
 	try {
 	  Thread.sleep(500);
 	} catch (InterruptedException e) {
-	  // TODO Auto-generated catch block
 	  e.printStackTrace();
 	}
 	System.err.println("\n1:" + gleise[0] + "	2:" + gleise[1] + "	3:" + gleise[2]);
@@ -70,7 +69,6 @@ public class RangierBf {
 	try {
 	  Thread.sleep(500);
 	} catch (InterruptedException e) {
-	  // TODO Auto-generated catch block
 	  e.printStackTrace();
 	}
 	System.err.println("\n1:" + gleise[0] + "	2:" + gleise[1] + "	3:" + gleise[2]);

@@ -20,7 +20,7 @@ public class Polygon extends Observable {
 
   /**
    * Die innere Klasse bestimmt die x- und y- Koordinaten eines Punktes, eines
-   * Polygons
+   * Polygons 
    */
   private class Punkt {
 	/**

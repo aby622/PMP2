@@ -62,7 +62,7 @@ public class JavaFxGUI extends Application {
    */
   public JavaFxGUI() {
 	height = 700;
-	width = 700;
+	width = 1000;
   }
 
   /**

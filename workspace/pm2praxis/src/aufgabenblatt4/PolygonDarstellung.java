@@ -8,7 +8,6 @@ package aufgabenblatt4;
 
 import java.util.Observable;
 import java.util.Observer;
-import javafx.beans.InvalidationListener;
 import javafx.event.EventHandler;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
@@ -33,7 +32,7 @@ public class PolygonDarstellung extends Canvas implements Observer {
   /**
    * Variable listener vom Typ InvalidationListener
    */
-  private InvalidationListener listener;
+
   /**
    * Variable modell vom Typ PolygonModell
    */
@@ -54,7 +53,7 @@ public class PolygonDarstellung extends Canvas implements Observer {
    * @param modell
    * 
    */
-  public synchronized void setModell(PolygonModell modell) {
+  public void setModell(PolygonModell modell) {
 	this.modell = modell;
   }
 
@@ -69,7 +68,7 @@ public class PolygonDarstellung extends Canvas implements Observer {
   /**
    * Die Methode löscht alle Elemente des Feldes
    */
-  public synchronized void clearScreen() {
+  public void clearScreen() {
 	gc.clearRect(0, 0, getWidth(), getHeight());
 	gc.fillRect(0, 0, getWidth(), getHeight());
   }
@@ -80,23 +79,13 @@ public class PolygonDarstellung extends Canvas implements Observer {
    * @param pane
    */
   public PolygonDarstellung(StackPane pane) {
-	super(350, 350);
+	super(720, 600);
 	gc = getGraphicsContext2D();
 	gc.setFill(Color.WHITE);
 	gc.setStroke(Color.BLACK);
 	pane.getChildren().add(this);
 	root = pane;
-	listener = new InvalidationListener() {
-	  @Override
-	  public void invalidated(javafx.beans.Observable observable) {
-		setWindow();
-		if (modell != null) {
-		  zeichnePolygon(modell.getPolygon());
-		}
-	  }
-	};
-	root.widthProperty().addListener(listener);
-	root.heightProperty().addListener(listener);
+	
 	addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
 	  @Override
 	  public void handle(MouseEvent event) {
@@ -113,7 +102,7 @@ public class PolygonDarstellung extends Canvas implements Observer {
    * @param polygon
    * @param farbe
    */
-  private synchronized void polygonZeichnung(Polygon polygon, Color farbe) {
+  private void polygonZeichnung(Polygon polygon, Color farbe) {
 	if (polygon != null) {
 	  gc.setStroke(farbe);
 	  for (int i = 0; i < polygon.getListePunkte().size(); i++) {
@@ -140,7 +129,7 @@ public class PolygonDarstellung extends Canvas implements Observer {
    * @param poly
    * 
    */
-  public synchronized void zeichnePolygon(Polygon poly) {
+  public void zeichnePolygon(Polygon poly) {
 	polygonZeichnung(poly, Color.ORANGE);
   }
 
