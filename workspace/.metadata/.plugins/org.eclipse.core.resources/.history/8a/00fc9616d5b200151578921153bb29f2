@@ -15,12 +15,14 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 
+
 /**
  * Die Klasse baut die Tabelle der Polygone
  *
  */
 public class PolygonTabelle {
-
+  
+  
   /**
    * Variable tabelle vom Typ TableView<Polygon>
    */
@@ -29,7 +31,8 @@ public class PolygonTabelle {
    * Variable modell vom Typ PolygonModell
    */
   private PolygonModell modell;
-
+  
+  
   /**
    * Konstruktor
    * 
@@ -41,7 +44,7 @@ public class PolygonTabelle {
 	this.tabelle = tabelle;
 	this.modell = modell;
   }
-
+  
   /**
    * Erstellt eine Tabelle mit Daten über die Polygone
    */

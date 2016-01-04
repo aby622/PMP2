@@ -83,7 +83,6 @@ public class PolygonModell extends Observable implements Observer {
   public String toString() {
 	return polygone.size() + "Polygone in der Liste. Aktuelles Polygon: " + thisPolygon.toString();
   }
-
   /**
    * Überschreiben der update Methode Methode
    * 
@@ -94,4 +93,4 @@ public class PolygonModell extends Observable implements Observer {
 	notifyObservers();
   }
 
-}
+} 

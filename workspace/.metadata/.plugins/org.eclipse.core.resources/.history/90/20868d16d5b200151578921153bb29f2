@@ -49,7 +49,7 @@ public class Polygon extends Observable {
    * Konstruktor
    * 
    * @param o
-   * 
+   *         
    */
   public Polygon(Observer o) {
 	punkte = new ArrayList<Punkt>();
@@ -60,9 +60,9 @@ public class Polygon extends Observable {
    * Variable punkte vom Typ List<Punkt>
    */
   private List<Punkt> punkte;
-  /**
-   * Variable info vom Typ String
-   */
+/**
+ * Variable info vom Typ String
+ */
   private String info;
 
   /**
@@ -78,9 +78,9 @@ public class Polygon extends Observable {
    * Setter
    *
    * @param x
-   * 
+   *          
    * @param y
-   * 
+   *        
    */
   public void setPunkt(double x, double y) {
 	punkte.add(new Punkt(x, y));
@@ -92,7 +92,7 @@ public class Polygon extends Observable {
    * Getter
    * 
    * @param index
-   * 
+   *    
    * @return Liefert die x-Koordinate am Index
    */
   public double getXAtIndex(int index) {
@@ -107,7 +107,7 @@ public class Polygon extends Observable {
    * Getter
    * 
    * @param index
-   * 
+   *      
    * @return Liefert die y-Koordinate am Index
    */
   public double getYAtIndex(int index) {
@@ -118,6 +118,7 @@ public class Polygon extends Observable {
 	}
   }
 
+  
   /**
    * Überschreiben der toString Methode
    * 
