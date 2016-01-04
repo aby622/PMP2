@@ -1,4 +1,10 @@
-package fertig;
+/**
+ * PMP2, WS 2015/16
+ * Gruppe: Jannes Volkens (jannes.volkens@haw-hamburg.de),
+ * Leon Schlichting (leon.schlichting@haw-hamburg.de)
+ * Aufgabe: Aufgabenblatt 4, Aufgabe 2
+ */
+package aufgabenblatt4;
 
 import javafx.application.Application;
 import javafx.scene.Scene;
@@ -19,15 +25,36 @@ import javafx.stage.Stage;
 public class JavaFxGUI extends Application {
 
   /**
-   * Variablen
+   * Variable primaryStage vom Typ Stage
    */
   private Stage primaryStage;
+  /**
+   * Variable pane vom Typ Pane
+   */
   private Pane pane;
+  /**
+   * Variable tabelle vom Typ TableVie<Polygon>
+   */
   private TableView<Polygon> tabelle;
+  /**
+   * Variable polygonTabelle vom Typ PolygonTabelle
+   */
   private PolygonTabelle polygonTabelle;
+  /**
+   * Variable flaeche vom Typ TextArea
+   */
   private TextArea flaeche;
+  /**
+   * Variable regulaererAusdruck vom Typ PolygonSkripting
+   */
   private PolygonSkripting regulaererAusdruck = new PolygonSkripting();
+  /**
+   * Variablen width und height vom Typ int definiert die Fensterseitenlängen
+   */
   private final int width, height;
+  /**
+   * Variable zeichenFlaeche vom Typ PolygonDarstelung
+   */
   private PolygonDarstellung zeichenFlaeche;
 
   /**

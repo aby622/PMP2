@@ -1,4 +1,10 @@
-package fertig;
+/**
+ * PMP2, WS 2015/16
+ * Gruppe: Jannes Volkens (jannes.volkens@haw-hamburg.de),
+ * Leon Schlichting (leon.schlichting@haw-hamburg.de)
+ * Aufgabe: Aufgabenblatt 4, Aufgabe 4
+ */
+package aufgabenblatt4;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -11,9 +17,12 @@ import java.util.regex.Pattern;
 public class PolygonSkripting {
 
   /**
-   * Variablen
+   * Variable Pattern
    */
   private final Pattern pattern;
+  /**
+   * Variable Matcher
+   */
   private Matcher matcher;
 
   /**

@@ -1,4 +1,10 @@
-package fertig;
+/**
+ * PMP2, WS 2015/16
+ * Gruppe: Jannes Volkens (jannes.volkens@haw-hamburg.de),
+ * Leon Schlichting (leon.schlichting@haw-hamburg.de)
+ * Aufgabe: Aufgabenblatt 4, Aufgabe 1
+ */
+package aufgabenblatt4;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,8 +22,14 @@ public class Polygon extends Observable {
    * Polygons
    */
   private class Punkt {
-	private double xKoordinaten;
-	private double yKoordinaten;
+	/**
+	 * xKoordinate
+	 */
+	private double xKoordinate;
+	/**
+	 * yKoordinaten
+	 */
+	private double yKoordinate;
 
 	/**
 	 * Konstruktor
@@ -27,9 +39,9 @@ public class Polygon extends Observable {
 	 * @param yKoordinaten
 	 * 
 	 */
-	public Punkt(double xKoordinaten, double yKoordinaten) {
-	  this.xKoordinaten = xKoordinaten;
-	  this.yKoordinaten = yKoordinaten;
+	public Punkt(double xKoordinate, double yKoordinate) {
+	  this.xKoordinate = xKoordinate;
+	  this.yKoordinate = yKoordinate;
 	}
   }
 
@@ -45,10 +57,12 @@ public class Polygon extends Observable {
   }
 
   /**
-   * Variablen
+   * Variable punkte vom Typ List<Punkt>
    */
   private List<Punkt> punkte;
-
+/**
+ * Variable info vom Typ String
+ */
   private String info;
 
   /**
@@ -83,7 +97,7 @@ public class Polygon extends Observable {
    */
   public double getXAtIndex(int index) {
 	if (index >= 0 && index < punkte.size()) {
-	  return punkte.get(index).xKoordinaten;
+	  return punkte.get(index).xKoordinate;
 	} else {
 	  throw new IndexOutOfBoundsException("Index ist nicht vorhanden");
 	}
@@ -98,7 +112,7 @@ public class Polygon extends Observable {
    */
   public double getYAtIndex(int index) {
 	if (index >= 0 && index < punkte.size()) {
-	  return punkte.get(index).yKoordinaten;
+	  return punkte.get(index).yKoordinate;
 	} else {
 	  throw new IndexOutOfBoundsException("Index ist nicht vorhanden");
 	}

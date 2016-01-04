@@ -1,4 +1,10 @@
-package fertig;
+/**
+ * PMP2, WS 2015/16
+ * Gruppe: Jannes Volkens (jannes.volkens@haw-hamburg.de),
+ * Leon Schlichting (leon.schlichting@haw-hamburg.de)
+ * Aufgabe: Aufgabenblatt 4, Aufgabe 3
+ */
+package aufgabenblatt4;
 
 import java.util.Observable;
 import java.util.Observer;
@@ -17,9 +23,21 @@ import javafx.scene.paint.Color;
  *
  */
 public class PolygonDarstellung extends Canvas implements Observer {
+  /**
+   * Variable gc vom Typ GraphicsContext
+   */
   private GraphicsContext gc;
+  /**
+   * Variable root vom Typ StackPane
+   */
   private StackPane root;
+  /**
+   * Variable listener vom Typ InvalidationListener
+   */
   private InvalidationListener listener;
+  /**
+   * Variable modell vom Typ PolygonModell
+   */
   private PolygonModell modell;
 
   /**
@@ -64,12 +82,9 @@ public class PolygonDarstellung extends Canvas implements Observer {
    */
   public PolygonDarstellung(StackPane pane) {
 	super(350, 350);
-
 	gc = getGraphicsContext2D();
-
 	gc.setFill(Color.WHITE);
 	gc.setStroke(Color.BLACK);
-
 	pane.getChildren().add(this);
 	root = pane;
 	listener = new InvalidationListener() {
@@ -80,7 +95,6 @@ public class PolygonDarstellung extends Canvas implements Observer {
 		if (modell != null) {
 		  zeichnePolygon(modell.getPolygon());
 		}
-
 	  }
 	};
 

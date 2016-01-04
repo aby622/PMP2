@@ -1,4 +1,10 @@
-package fertig;
+/**
+ * PMP2, WS 2015/16
+ * Gruppe: Jannes Volkens (jannes.volkens@haw-hamburg.de),
+ * Leon Schlichting (leon.schlichting@haw-hamburg.de)
+ * Aufgabe: Aufgabenblatt 4, Aufgabe 3
+ */
+package aufgabenblatt4;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,9 +24,12 @@ public class PolygonTabelle {
   
   
   /**
-   * Variablen
+   * Variable tabelle vom Typ TableView<Polygon>
    */
   private TableView<Polygon> tabelle;
+  /**
+   * Variable modell vom Typ PolygonModell
+   */
   private PolygonModell modell;
   
   

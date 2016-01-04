@@ -1,4 +1,10 @@
-package fertig;
+/**
+ * PMP2, WS 2015/16
+ * Gruppe: Jannes Volkens (jannes.volkens@haw-hamburg.de),
+ * Leon Schlichting (leon.schlichting@haw-hamburg.de)
+ * Aufgabe: Aufgabenblatt 4, Aufgabe 1
+ */
+package aufgabenblatt4;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,6 +21,9 @@ public class PolygonModell extends Observable implements Observer {
    * Liste der Polygone
    */
   private List<Polygon> polygone = new ArrayList<Polygon>();
+  /**
+   * Aktuelles Polygon
+   */
   private Polygon thisPolygon;
 
   /**
@@ -74,7 +83,10 @@ public class PolygonModell extends Observable implements Observer {
   public String toString() {
 	return polygone.size() + "Polygone in der Liste. Aktuelles Polygon: " + thisPolygon.toString();
   }
-
+  /**
+   * Überschreiben der update Methode Methode
+   * 
+   */
   @Override
   public void update(Observable o, Object arg) {
 	setChanged();
